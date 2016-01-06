@@ -15,21 +15,21 @@ var gulp = require('gulp'),
 /* --------- paths --------- */
 var paths = {
     sass: {
-    	src: 'src/sass/**/*.sass',
-        location: 'src/sass/main.sass',
+        src: 'src/sass/**/*.scss',
+        location: 'src/sass/main.scss',
         destination: 'www/css'
     },
 
     js: {
-    	src: 'src/js/**/*.js',
+        src: 'src/js/**/*.js',
         destination: 'www/js'
     },
 
     jade: {
-    	src: 'src/jade/**/*.jade',
+        src: 'src/jade/**/*.jade',
         location: 'src/jade/*.jade',
-	    destination: 'www'
-	}
+        destination: 'www'
+    }
 };
 
 
@@ -74,7 +74,7 @@ gulp.task('sprite', function () {
         .pipe(spritesmith({
             imgName: 'sprite.png',
             imgPath: '../img/sprite.png',
-            cssName: 'sprite.sass',
+            cssName: 'sprite.scss',
             padding: 20,
             algorithm: 'left-right'
         }));
@@ -102,7 +102,7 @@ gulp.task('watch', function () {
     gulp.watch(paths.js.src, ['concat-js']);
     gulp.watch([
         'www/*.html',
-        'www/css/*css',
+        'www/css/*.css',
         paths.js.src
     ]).on('change', browserSync.reload);
 });

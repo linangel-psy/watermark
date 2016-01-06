@@ -1,10 +1,11 @@
-@import section
-@import image
+@import "include/adjustment";
+@import "include/section";
+@import "include/image";
 
-@import aside
-@import upload
-@import move
-@import opacity
-@import buttons
+@import "include/aside";
+@import "include/upload";
+@import "include/move";
+@import "include/opacity";
+@import "include/buttons";
 
-@import footer
+@import "include/footer";

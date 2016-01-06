@@ -1,0 +1,43 @@
+.settings{
+	display: inline-block;
+	vertical-align: top;
+	width: 260px;
+	background: #fff;
+	margin-left: -4px;
+	font-family: "robotolight";
+	font-size: 14px;
+}
+
+.settings__element-buttons{
+		&:before,
+		&:after {
+			content: "";
+			display: table;
+		}
+
+		&:after {
+		clear: both;
+	}
+}
+
+.settings__button{
+font-family: "robotomedium";
+font-size: 18px;
+color: #fff;
+width: 100px;
+height: 40px;
+border-radius: 5px;
+border: 0 none;
+
+}
+
+.settings__button--submit{
+float: right;
+background-color: #f97e76;
+}
+
+
+.settings__button--reset{
+	float: left;
+
+}
