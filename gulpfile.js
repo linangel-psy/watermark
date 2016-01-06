@@ -15,21 +15,21 @@ var gulp = require('gulp'),
 /* --------- paths --------- */
 var paths = {
     sass: {
-    	src: 'src/sass/**/*.scss',
+        src: 'src/sass/**/*.scss',
         location: 'src/sass/main.scss',
         destination: 'www/css'
     },
 
     js: {
-    	src: 'src/js/**/*.js',
+        src: 'src/js/**/*.js',
         destination: 'www/js'
     },
 
     jade: {
-    	src: 'src/jade/**/*.jade',
+        src: 'src/jade/**/*.jade',
         location: 'src/jade/*.jade',
-	    destination: 'www'
-	}
+        destination: 'www'
+    }
 };
 
 
