@@ -8,7 +8,7 @@
 	font-size: 14px;
 }
 
-.settings__element-buttons{
+.settings-box_buttons{
 		&:before,
 		&:after {
 			content: "";
@@ -20,7 +20,7 @@
 	}
 }
 
-.settings__button{
+.settings-box__button{
 font-family: "robotomedium";
 font-size: 18px;
 color: #fff;
@@ -31,13 +31,12 @@ border: 0 none;
 
 }
 
-.settings__button--submit{
+.settings-box__button_submit{
 float: right;
 background-color: #f97e76;
 }
 
-
-.settings__button--reset{
+.settings-box__button_reset{
 	float: left;
 
 }
