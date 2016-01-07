@@ -1,0 +1,32 @@
+/* ========== position grid ========== */
+
+.settings-box__img-position-list {
+  display: table;
+  float: left;
+  margin-bottom: 38px;
+}
+
+.settings-box__img-position-item_top, 
+.settings-box__img-position-item_middle,
+.settings-box__img-position-item_bottom {
+	display: table-row;
+}
+
+.settings-box__img-position-link {
+	display: table-cell;
+	border: 1px solid #9eb2c0;
+	width: 33px;
+  	height: 35px;
+	background: #dbe1e8;
+  
+  &.active {
+		  background-color: rgb(249, 126, 118);
+	}
+  
+}
+
+/* ========== coordinates ========== */
+
+.settings-box__img-position-coordinates_x {
+	float: right;
+}
