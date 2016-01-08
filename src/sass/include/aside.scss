@@ -1,14 +1,76 @@
+/*------------ общие стили правого блока--------*/
 .settings{
 	display: inline-block;
 	vertical-align: top;
 	width: 260px;
-	background: #fff;
+	height: 670px;
+	background: #f1f1f5;
 	margin-left: -4px;
-	font-family: "robotolight";
 	font-size: 14px;
+	font-family: roboto-light;
+}
+
+.settings__title{
+	font-family: roboto-light;
+	font-weight: 100;
+	font-size: 26px;
+	text-align: center;
+	padding: 25px 0;
+
+}
+
+.settings-box__name{
+	display: block;
+	padding: 13px 20px 0 20px;
+}
+
+/*------------ разделители -----------------*/
+.settings-divider{
+	box-sizing:border-box;
+	position:relative;
+	padding-bottom:25px;
+	border-bottom:1px solid rgba(249,126,118,.4);
+}
+.settings-divider:after,.settings-divider:before{
+	left:50%;
+	position:absolute;
+	margin-left:-9px;
+	content:'';
+	border-right:9px solid transparent;
+	border-left:9px solid transparent;
+}
+.settings-divider:before{
+	z-index:5;
+	bottom:-8px;
+	border-top:10px solid #f1f1f5;
+}
+.settings-divider:after{
+	z-index:2;
+	bottom:-10px;
+	border-top:10px solid rgba(249,126,118,.4);
+}
+
+/*--------------------- высота блоков ------------------------*/
+.settings-box_upload{
+height: 135px;
+}
+
+.settings-box_img-position{
+height: 179px;
+}
+
+.settings-box_opacity{
+height: 73px;
 }
 
 .settings-box_buttons{
+
+}
+/*----------- секция с кнопками ---------------*/
+.settings-box_buttons{
+	padding: 25px 10px;
+	margin-top: 31px;
+
 		&:before,
 		&:after {
 			content: "";
@@ -21,22 +83,33 @@
 }
 
 .settings-box__button{
-font-family: "robotomedium";
+font-family: roboto-medium;
 font-size: 18px;
 color: #fff;
 width: 100px;
 height: 40px;
 border-radius: 5px;
 border: 0 none;
+padding-bottom: 5px;
 
 }
 
 .settings-box__button_submit{
 float: right;
 background-color: #f97e76;
+
+	&:hover{
+		background-color: #f37b74;
+		border: 1px solid #e3736c;
+	}
 }
 
 .settings-box__button_reset{
 	float: left;
+
+	&:hover{
+		background-color: #b5c3cd;
+		border: 1px solid #a6b2bb;
+	}
 
 }
