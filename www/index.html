@@ -8,9 +8,6 @@
 		</title>
 		<link rel="stylesheet" type="text/css" href="css/main.min.css">
 		<link rel="stylesheet" type="text/css" href="css/fonts.css">
-		<script src="bower/jquery/dist/jquery.min.js" type="text/javascript"></script>
-		<script src="bower/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-		<script src="js/main.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -22,17 +19,17 @@
 					</section>
 					<aside class="settings">
 						<div class="settings__title">Настройки</div>
-						<form id="main-form">
+						<form id="main-formaction" action="image.php" enctype="multipart/form-data" method="post">
 							<div class="settings-box settings-box_upload">
-								<div class="settings-box__original-img">
-									<label class="settings-box__name">Исходное изображение
-										<input class="settings-box__img-upload">
-									</label>
+								<div class="settings-box__section"> 
+									<div class="settings-box__section_heading">Исходное изображение</div>
+									<input name="upload_img" id="upload_img" type="file" accept="image/jpeg,image/png,image/gif,image/jpg" class="settings-box__section_img input-image">
+									<label for="upload_img" class="settings-box__section_label"><span class="input-upload">Выберите файл</span><span class="icon-upload">Выбрать файл</span></label>
 								</div>
-								<div class="settings-box__watermark-img">
-									<label class="settings-box__name">Водяной знак
-										<input class="settings-box__img-upload">
-									</label>
+								<div class="settings-box__section">
+									<div class="settings-box__section_heading">Водяной знак</div>
+									<input name="upload_watermark" id="upload_watermark" type="file" accept="image/jpeg,image/png,image/gif,image/jpg" class="settings-box__section_img input-image">
+									<label for="upload_watermark" class="settings-box__section_label"><span class="input-upload">Выберите файл</span><span class="icon-upload">Выбрать файл</span></label>
 								</div>
 							</div>
 							<div class="settings-divider"></div>
@@ -54,5 +51,8 @@
 		<footer class="footer">
 			<div class="container"><span class="footer-text">© 2014, Это мой сайт, пожалуйста, не копируйте и не воруйте его</span></div>
 		</footer>
+		<script src="bower/jquery/dist/jquery.min.js" type="text/javascript"></script>
+		<script src="bower/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+		<script src="js/main.min.js" type="text/javascript"></script>
 	</body>
 </html>
