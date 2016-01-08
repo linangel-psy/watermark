@@ -1,6 +1,6 @@
 aside.settings
 	.settings__title Настройки
-	form#main-form
+	form(id="main-form" action="image.php" enctype="multipart/form-data" method="post")
 		.settings-box.settings-box_upload
 			include ../include/upload
 		.settings-divider

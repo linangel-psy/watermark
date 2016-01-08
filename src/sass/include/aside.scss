@@ -52,15 +52,16 @@
 
 /*--------------------- высота блоков ------------------------*/
 .settings-box_upload{
-height: 135px;
+	padding: 0 20px;
+	box-sizing: border-box;
 }
 
 .settings-box_img-position{
-height: 179px;
+	height: 179px;
 }
 
 .settings-box_opacity{
-height: 73px;
+	height: 73px;
 }
 
 .settings-box_buttons{

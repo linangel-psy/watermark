@@ -1,0 +1,55 @@
+.settings-box__section {
+	margin-bottom: 25px;
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+	
+	&_heading {
+		color: #2e3641;
+		font-size: 14px;
+		display: block;
+		margin-bottom: 10px;
+	}
+	
+	&_img {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+	}
+	
+	& .input-upload {
+		width: 180px;
+		padding: 3px 5px;
+		display: inline-block;
+		border: 1px solid #9eb2c0;
+		cursor: pointer;
+		border-right: 0;
+		box-sizing: border-box;
+		vertical-align: middle;
+		border-radius: 3px 0 0 3px;
+	}
+	
+	& .icon-upload {
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		width: 39px;
+		height: 27px;
+		background-color: #f97e76;
+		box-sizing: border-box;
+		border-radius: 0 3px 3px 0;
+		position: relative;
+		@include hide-text;
+		
+		&:before {
+			content: '';
+			@include sprite($icon-download);
+			@include center;
+		}
+	}
+
+}
