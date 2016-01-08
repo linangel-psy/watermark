@@ -41,14 +41,19 @@
 								<li class="settings-box__img-position-item_bottom"><a href="#" id="position-link" class="settings-box__img-position-link"></a><a href="#" id="position-link" class="settings-box__img-position-link"></a><a href="#" id="position-link" class="settings-box__img-position-link"></a></li>
 							</ul>
 							<div class="settings-box__img-position-coordinates">
-								<fieldset class="settings-box__img-position-coordinates_x">
-									<label for="x-coordinates">x</label>
-									<input name="x-coordinates" type="text">
-								</fieldset>
-								<fieldset class="settings-box__img-position-coordinates_y">
-									<label for="y-coordinates">y</label>
-									<input name="y-coordinates" type="text">
-								</fieldset>
+								<div class="settings-box__img-position-coordinates_container">
+									<div class="settings-box__img-position-coordinates_x">
+										<label for="x-coordinates" class="coordinates-label">x</label>
+										<input name="x-coordinates" type="text" class="settings-box__input_x">
+										<div class="link-block"><a href="#" id="increment-link" class="settings-box__link-x-top">1</a><a href="#" id="increment-link" class="settings-box__link-x-bottom"></a></div>
+									</div>
+								</div>
+								<div class="settings-box__img-position-coordinates_container">
+									<div class="settings-box__img-position-coordinates_y">
+										<label for="y-coordinates">y</label>
+										<input name="y-coordinates" type="text" class="settings-box__input_y"><a href="#" id="increment-link" class="settings-box__link-y-top"></a><a href="#" id="increment-link" class="settings-box__link-y-bottom"></a>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="settings-divider"></div>

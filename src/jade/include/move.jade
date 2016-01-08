@@ -12,9 +12,16 @@ ul.settings-box__img-position-list
 		a(href="#").settings-box__img-position-link#position-link
 		a(href="#").settings-box__img-position-link#position-link
 .settings-box__img-position-coordinates
-	fieldset.settings-box__img-position-coordinates_x
-			label(for="x-coordinates") x
-			input(name="x-coordinates" type="text")
-	fieldset.settings-box__img-position-coordinates_y
-			label(for="y-coordinates") y
-			input(name="y-coordinates" type="text")
+	.settings-box__img-position-coordinates_container
+		.settings-box__img-position-coordinates_x
+				label(for="x-coordinates" class="coordinates-label") x
+				input(name="x-coordinates" type="text" class="settings-box__input_x")
+				.link-block
+					a(href="#").settings-box__link-x-top#increment-link 1
+					a(href="#").settings-box__link-x-bottom#increment-link
+	.settings-box__img-position-coordinates_container
+		.settings-box__img-position-coordinates_y
+				label(for="y-coordinates") y
+				input(name="y-coordinates" type="text" class="settings-box__input_y")
+				a(href="#").settings-box__link-y-top#increment-link
+				a(href="#").settings-box__link-y-bottom#increment-link

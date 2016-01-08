@@ -15,6 +15,7 @@
   .settings-box__name {
     display: block;
     margin-top: 20px;
+    margin-left: 20px;
   }
 }
 
@@ -22,8 +23,10 @@
   display: table;
   border-collapse: collapse;
   float: left;
-  margin-bottom: 38px;
+  width: 103px;
   margin-top: 38px;
+  margin-left: 20px;
+  margin-bottom: 38px;
 }
 
 .settings-box__img-position-item_top,
@@ -36,7 +39,7 @@
 	display: table-cell;
 	border: 1px solid #9eb2c0;
 	width: 33px;
-  	height: 35px;
+  height: 35px;
 	background: #dbe1e8;
 
   &.active {
@@ -49,5 +52,32 @@
 
 .settings-box__img-position-coordinates{
 	float: right;
-  width: 8px;
+  width: 85px;
+  margin-top: 38px;
+}
+
+.settings-box__input_x,
+.settings-box__input_y {
+  display: none;
+}
+
+.settings-box__img-position-coordinates_x,
+.settings-box__img-position-coordinates_y {
+  display: inline-block;
+}
+
+.settings-box__img-position-coordinates_x:after,
+.settings-box__img-position-coordinates_y:after,{
+  content: "0";
+  color: red;
+}
+
+#increment-link {
+  display: block;
+}
+
+.link-block, 
+.coordinates-label,
+.settings-box__input_x {
+  display: inline-block;
 }
