@@ -1,0 +1,54 @@
+/*------------ jquery-ui slider ------------------*/
+.ui-slider-horizontal{
+	height: 3px;
+	background: #dbe1e8;
+	margin: 30px 20px;
+	border: 0 none;
+
+	*{
+		outline: none !important;
+	}
+}
+
+ .ui-slider-range{
+	background: #9eb2c0;
+}
+
+.ui-slider-handle, .ui-state-focus{
+ background: #dbe1e8 !important;
+ width: 24px !important;
+ height: 24px !important;
+ border-radius: 50%;
+ top: 0;
+ margin-top: -5px;
+ border: 0 none;
+ box-shadow: 0 1px 1px 0 #aeaeb1;
+ cursor: pointer !important;
+
+ &:after{
+ 	content: '';
+ 	height: 8px;
+ 	width: 8px;
+ 	border-radius: 50%;
+	background: #9eb2c0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+ }
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+ border: 0 none;
+}
+
+.ui-state-hover, .ui-state-active{
+	background: #dbe1e8 !important;
+	&:after{
+		background: #f97e76 !important;
+	}
+
+
+}
