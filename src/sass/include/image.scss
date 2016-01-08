@@ -1,0 +1,25 @@
+.img-box {
+	width: 650px;
+	height: 530px;
+	position: absolute;
+	overflow: hidden;
+	top: 0px;
+	left: 0px;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.watermark-box {
+	width: 50px;
+	height: 30px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	img {
+		width: auto;
+		height: 100%;
+	}
+}
