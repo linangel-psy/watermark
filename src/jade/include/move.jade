@@ -1,28 +1,34 @@
-ul.settings-box__img-position-list
-	li.settings-box__img-position-item_top
-		a(href="#").settings-box__img-position-link#position-link
-		a(href="#").settings-box__img-position-link#position-link
-		a(href="#").settings-box__img-position-link#position-link
-	li.settings-box__img-position-item_middle
-		a(href="#").settings-box__img-position-link#position-link
-		a(href="#").settings-box__img-position-link#position-link
-		a(href="#").settings-box__img-position-link#position-link
-	li.settings-box__img-position-item_bottom
-		a(href="#").settings-box__img-position-link#position-link
-		a(href="#").settings-box__img-position-link#position-link
-		a(href="#").settings-box__img-position-link#position-link
-.settings-box__img-position-coordinates
+ul.settings-box__list
+	li.settings-box__item
+		a(href="#").settings-box__link#top-left
+	li.settings-box__item
+		a(href="#").settings-box__link#top-middle
+	li.settings-box__item
+		a(href="#").settings-box__link#top-right
+	li.settings-box__item
+		a(href="#").settings-box__link#middle-left
+	li.settings-box__item
+		a(href="#").settings-box__link#middle-middle
+	li.settings-box__item
+		a(href="#").settings-box__link#middle-righ
+	li.settings-box__item
+		a(href="#").settings-box__link#bottom-left
+	li.settings-box__item
+		a(href="#").settings-box__link#bottom-middle
+	li.settings-box__item
+		a(href="#").settings-box__link#bottom-right
+.settings-box-coordinates
 	.settings-box__coordinates-container
-		.settings-box__coordinates_x
-				label(for="x-coordinates" class="coordinates-label") x
-				input(name="x-coordinates" type="text" class="settings-box__input_x" disabled)
+		.settings-box__coordinates.settings-box__coordinates_x
+				label(for="x-coordinates" class="coordinates-label") X
+				input(name="x-coordinates" type="text" class="settings-box__input settings-box__input_x" value="0")
 				.coordinates-link-container
-					a(href="#").settings-box__link.settings-box__link-x-top#increment-link
-					a(href="#").settings-box__link.settings-box__link-x-bottom#increment-link
+					a(href="#").settings-box__coordinates-link.settings-box__coordinates-link_top#incrementX
+					a(href="#").settings-box__coordinates-link.settings-box__coordinates-link_bottom#decrementX
 	.settings-box__coordinates-container
-		.settings-box__coordinates_y
-				label(for="y-coordinates" class="coordinates-label") y
-				input(name="y-coordinates" type="text" class="settings-box__input_y" disabled)
+		.settings-box__coordinates.settings-box__coordinates_y
+				label(for="y-coordinates" class="coordinates-label") Y
+				input(name="y-coordinates" type="text" class="settings-box__input settings-box__input_y" value="0")
 				.coordinates-link-container
-					a(href="#").settings-box__link.settings-box__link-y-top#increment-link
-					a(href="#").settings-box__link.settings-box__link-y-bottom#increment-link
+					a(href="#").settings-box__coordinates-link.settings-box__coordinates-link_top#incrementY
+					a(href="#").settings-box__coordinates-link.settings-box__coordinates-link_bottom#decrementY
