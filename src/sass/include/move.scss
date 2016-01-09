@@ -1,0 +1,113 @@
+/* ========== position grid ========== */
+
+.settings-box_img-position{
+  box-sizing: border-box;
+  /* clearfix */
+  &:before,
+	&:after{
+		content: "";
+		display: table;
+	}
+	&:after{
+		clear: both;
+  }
+  /* end clearfix */
+  .settings-box__name{
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+
+.settings-box__img-position-list{
+  display: table;
+  border-collapse: collapse;
+  float: left;
+  width: 103px;
+  margin-top: 38px;
+  margin-left: 20px;
+  margin-bottom: 38px;
+}
+
+.settings-box__img-position-item_top,
+.settings-box__img-position-item_middle,
+.settings-box__img-position-item_bottom{
+	display: table-row;
+}
+
+.settings-box__img-position-link{
+	display: table-cell;
+	border: 1px solid #9eb2c0;
+	width: 33px;
+  height: 35px;
+	background: #dbe1e8;
+
+  &.active{
+		  background-color: rgb(249, 126, 118);
+	}
+
+}
+
+.active{
+      background-color: rgb(249, 126, 118);
+}
+
+/* ========== coordinates ========== */
+
+.settings-box__img-position-coordinates{
+	float: right;
+  width: 85px;
+  margin-top: 32px;
+  margin-right: 25px;
+}
+
+.coordinates-label,
+.settings-box__input_x,
+.settings-box__input_y,
+.coordinates-link-container{
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.settings-box__input_x,
+.settings-box__input_y{
+  width: 36px;
+  height: 36px;
+  font-size: 13px;
+  padding: 6px 0 4px 10px;
+  border: 1px solid #cecece;
+  background: #F6F6f6;
+  border-radius: 4px;
+}
+
+.coordinates-link-container{
+  position: relative;
+}
+
+.settings-box__coordinates_x{
+  margin-bottom: 8px;
+}
+
+.settings-box__link{
+  display: block;
+  position: absolute;
+  height: 11px;
+  width: 14px;
+  background: url('../img/sprite.png') no-repeat;
+}
+
+.settings-box__link-x-top{
+  top: 10px;
+  left: 5px;
+}
+
+.settings-box__link-x-bottom{
+  top: 15px;
+  left: 5px;
+}
+
+.settings-box__link-y-top{
+}
+
+.settings-box__link-y-bottom{
+}

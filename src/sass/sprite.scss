@@ -11,22 +11,44 @@ $icon-home: x y offset_x offset_y width height total_width total_height image_pa
 At the bottom of this section, we provide information about the spritesheet itself
 $spritesheet: width height image $spritesheet-sprites;
 */
+$arrow-bottom-name: 'arrow-bottom';
+$arrow-bottom-x: 0px;
+$arrow-bottom-y: 0px;
+$arrow-bottom-offset-x: 0px;
+$arrow-bottom-offset-y: 0px;
+$arrow-bottom-width: 13px;
+$arrow-bottom-height: 8px;
+$arrow-bottom-total-width: 87px;
+$arrow-bottom-total-height: 16px;
+$arrow-bottom-image: '../img/sprite.png';
+$arrow-bottom: (0px, 0px, 0px, 0px, 13px, 8px, 87px, 16px, '../img/sprite.png', 'arrow-bottom', );
+$arrow-top-name: 'arrow-top';
+$arrow-top-x: 33px;
+$arrow-top-y: 0px;
+$arrow-top-offset-x: -33px;
+$arrow-top-offset-y: 0px;
+$arrow-top-width: 13px;
+$arrow-top-height: 8px;
+$arrow-top-total-width: 87px;
+$arrow-top-total-height: 16px;
+$arrow-top-image: '../img/sprite.png';
+$arrow-top: (33px, 0px, -33px, 0px, 13px, 8px, 87px, 16px, '../img/sprite.png', 'arrow-top', );
 $icon-download-name: 'icon-download';
-$icon-download-x: 0px;
+$icon-download-x: 66px;
 $icon-download-y: 0px;
-$icon-download-offset-x: 0px;
+$icon-download-offset-x: -66px;
 $icon-download-offset-y: 0px;
 $icon-download-width: 21px;
 $icon-download-height: 16px;
-$icon-download-total-width: 21px;
+$icon-download-total-width: 87px;
 $icon-download-total-height: 16px;
 $icon-download-image: '../img/sprite.png';
-$icon-download: (0px, 0px, 0px, 0px, 21px, 16px, 21px, 16px, '../img/sprite.png', 'icon-download', );
-$spritesheet-width: 21px;
+$icon-download: (66px, 0px, -66px, 0px, 21px, 16px, 87px, 16px, '../img/sprite.png', 'icon-download', );
+$spritesheet-width: 87px;
 $spritesheet-height: 16px;
 $spritesheet-image: '../img/sprite.png';
-$spritesheet-sprites: ($icon-download, );
-$spritesheet: (21px, 16px, '../img/sprite.png', $spritesheet-sprites, );
+$spritesheet-sprites: ($arrow-bottom, $arrow-top, $icon-download, );
+$spritesheet: (87px, 16px, '../img/sprite.png', $spritesheet-sprites, );
 
 /*
 The provided mixins are intended to be used with the array-like variables
