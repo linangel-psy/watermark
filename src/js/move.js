@@ -7,7 +7,12 @@
 
 	var _setUpListners = function () {
 		// listening 
-	}
+		$('#position-link').on('click', _changeActiveClass);
+	};
+
+	var _changeActiveClass = function () {
+		$(this).toggleClass('active');
+	};
 
 	return { // public methods
 		init: init
@@ -16,9 +21,6 @@
 })();
 
 moveModule.init();
-
-
-
 
 // $(functio() {
 

@@ -1,18 +1,18 @@
 /* ========== position grid ========== */
 
-.settings-box_img-position {
+.settings-box_img-position{
   box-sizing: border-box;
   /* clearfix */
   &:before,
-	&:after {
+	&:after{
 		content: "";
 		display: table;
 	}
-	&:after {
+	&:after{
 		clear: both;
   }
   /* end clearfix */
-  .settings-box__name {
+  .settings-box__name{
     display: block;
     margin-top: 20px;
     margin-left: 20px;
@@ -42,10 +42,14 @@
   height: 35px;
 	background: #dbe1e8;
 
-  &.active {
+  &.active{
 		  background-color: rgb(249, 126, 118);
 	}
 
+}
+
+.active{
+      background-color: rgb(249, 126, 118);
 }
 
 /* ========== coordinates ========== */
@@ -53,31 +57,57 @@
 .settings-box__img-position-coordinates{
 	float: right;
   width: 85px;
-  margin-top: 38px;
+  margin-top: 32px;
+  margin-right: 25px;
+}
+
+.coordinates-label,
+.settings-box__input_x,
+.settings-box__input_y,
+.coordinates-link-container{
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .settings-box__input_x,
-.settings-box__input_y {
-  display: none;
+.settings-box__input_y{
+  width: 36px;
+  height: 36px;
+  font-size: 13px;
+  padding: 6px 0 4px 10px;
+  border: 1px solid #cecece;
+  background: #F6F6f6;
+  border-radius: 4px;
 }
 
-.settings-box__img-position-coordinates_x,
-.settings-box__img-position-coordinates_y {
-  display: inline-block;
+.coordinates-link-container{
+  position: relative;
 }
 
-.settings-box__img-position-coordinates_x:after,
-.settings-box__img-position-coordinates_y:after,{
-  content: "0";
-  color: red;
+.settings-box__coordinates_x{
+  margin-bottom: 8px;
 }
 
-#increment-link {
+.settings-box__link{
   display: block;
+  position: absolute;
+  height: 11px;
+  width: 14px;
+  background: url('../img/sprite.png') no-repeat;
 }
 
-.link-block, 
-.coordinates-label,
-.settings-box__input_x {
-  display: inline-block;
+.settings-box__link-x-top{
+  top: 10px;
+  left: 5px;
+}
+
+.settings-box__link-x-bottom{
+  top: 15px;
+  left: 5px;
+}
+
+.settings-box__link-y-top{
+}
+
+.settings-box__link-y-bottom{
 }
