@@ -3,8 +3,7 @@
 	height: 530px;
 	position: absolute;
 	overflow: hidden;
-	top: 0px;
-	left: 0px;
+	background: red;
 
 	img {
 		width: 100%;
@@ -12,11 +11,10 @@
 	}
 }
 .watermark-box {
-	width: 50px;
-	height: 30px;
+	// width: 50px;
+	// height: 30px;
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	background: green;
 
 	img {
 		width: auto;
