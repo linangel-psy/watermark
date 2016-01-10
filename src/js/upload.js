@@ -50,7 +50,6 @@ function filesUpload(elem, clearElem, placeToPaste) {
 			$('.progress-bar').fadeOut(300);
 		}, 2000);
 	}).on('fileuploaddone', function (e, data) {
-		//$(placeToPaste).find('img').remove();
 		clearBlocks(clearElem);
 		$.each(data.result.files, function (index, file) {
 			if (i == 0) {

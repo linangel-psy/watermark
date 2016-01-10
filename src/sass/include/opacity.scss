@@ -1,4 +1,9 @@
 /*------------ jquery-ui slider ------------------*/
+.input-hidden{
+	position: absolute;
+	left: -9999px;
+}
+
 .ui-slider-horizontal{
 	height: 3px;
 	background: #dbe1e8;

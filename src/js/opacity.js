@@ -1,22 +1,21 @@
-$(document).ready(function (){
-	$( ".slider" ).slider({
-		range: "min",
-		value: 100,
-		min: 10,
-		max: 100,
-		slide: function( event, ui ) {
-			$( "#amount" ).val( "$" + ui.value );
-		}
-	});
-	$( "#amount" ).val( "$" + $( "#slider-range-min" ).slider( "value" ) );
+$( ".slider" ).slider({
+	range: "min",
+	value: 60,
+	min: 0,
+	max: 100,
+	slide: function( event, ui ) {
+		$( "#opacityValue" ).val( ui.value );
+	}
+});
+$( "#opacityValue" ).val( $( "#sliderOpacity" ).slider( "value" ) );
 
-	var watermarkOpacity = function() {
-		var opacity = parseInt($('.ui-slider-range').css('width')) / 220;
-		$('#watermarkBox').css('opacity', opacity);
-	};
-	$( ".slider" ).slider({
-		slide: function( event, ui ) {
-			watermarkOpacity();
-		}
-	});
+var watermarkOpacity = function() {
+	var opacity = $( "#sliderOpacity" ).slider( "value" ) / 100;
+	$('#watermarkBox').css('opacity', opacity);
+	$( "#opacityValue" ).val( $( "#sliderOpacity" ).slider( "value" ) );
+};
+$( ".slider" ).slider({
+	slide: function( event, ui ) {
+		watermarkOpacity();
+	}
 });
