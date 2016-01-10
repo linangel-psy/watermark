@@ -1,20 +1,27 @@
 var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
+	var position;
+	if (box == '#imgBox') {
+		position = 'middle-middle';
+	}
+	else if (box == '#watermarkBox') {
+		position = 'bottom-right';
+	};
 	var proportionsH = imgH / boxH,
 		proportionsW = imgW / boxW;
 	if (proportionsH < 1 && proportionsW < 1) {
 		setBoxSize(box, imgH, imgW);
-		setPosition(box, boxH, boxW, imgH, imgW, 'bottom-right');
+		setPosition(box, boxH, boxW, imgH, imgW, position);
 		watermarkOpacity();
 	} else {
 		if (proportionsW > proportionsH) {
 			var height = (boxW / imgW) * imgH;
 			setBoxSize(box, height, boxW);
-			setPosition(box, boxH, boxW, height, boxW, 'bottom-right');
+			setPosition(box, boxH, boxW, height, boxW, position);
 			watermarkOpacity();
 		} else {
 			var width = (boxH / imgH) * imgW;
 			setBoxSize(box, boxH, width);
-			setPosition(box, boxH, boxW, boxH, width, 'bottom-right');
+			setPosition(box, boxH, boxW, boxH, width, position);
 			watermarkOpacity();
 		}
 	};
@@ -45,80 +52,80 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			break;
 		case 'top-middle':
 			var top = 0,
-				left = (outW - insideW) / 2;
+				left = Math.round((outW - insideW) / 2);
 			$(box).css({
-				'top': 0,
-				'left': (outW - insideW) / 2
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'top-right':
 			var top = 0,
-				left = (outW - insideW);
+				left = Math.round((outW - insideW));
 			$(box).css({
-				'top': 0,
-				'left': (outW - insideW)
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'middle-left':
-			var top = (outH - insideH) / 2,
+			var top = Math.round((outH - insideH) / 2),
 				left = 0;
 			$(box).css({
-				'top': (outH - insideH) / 2,
-				'left': 0
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'middle-middle':
-			var top = (outH - insideH) / 2,
-				left = (outW - insideW) / 2;
+			var top = Math.round((outH - insideH) / 2),
+				left = Math.round((outW - insideW) / 2);
 			$(box).css({
-				'top': (outH - insideH) / 2,
-				'left': (outW - insideW) / 2
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'middle-right':
-			var top = (outH - insideH) / 2,
-				left = (outW - insideW);
+			var top = Math.round((outH - insideH) / 2),
+				left = Math.round((outW - insideW));
 			$(box).css({
-				'top': (outH - insideH) / 2,
-				'left': (outW - insideW)
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'bottom-left':
-			var top = (outH - insideH),
+			var top = Math.round((outH - insideH)),
 				left = 0;
 			$(box).css({
-				'top': (outH - insideH),
-				'left': 0
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'bottom-middle':
-			var top = (outH - insideH),
-				left = (outW - insideW) / 2;
+			var top = Math.round((outH - insideH)),
+				left = Math.round((outW - insideW) / 2);
 			$(box).css({
-				'top': (outH - insideH),
-				'left': (outW - insideW) / 2
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'bottom-right':
-			var top = (outH - insideH),
-				left = (outW - insideW);
+			var top = Math.round((outH - insideH)),
+				left = Math.round((outW - insideW));
 			$(box).css({
-				'top': (outH - insideH),
-				'left': (outW - insideW)
+				'top': top,
+				'left': left
 			});
 			$('.settings-box__input_x').attr('value', left);
 			$('.settings-box__input_y').attr('value', top);
