@@ -1,10 +1,12 @@
 <?php
 session_start();
+
 $file = $_FILES['files'];
 $file_size = $_FILES['upload_img']['size'];
 $file_tmp = $_FILES['upload_img']['tmp_name'];
 $file_name = $_FILES['upload_img']['name'];
 $file_dist = '../img/uploads/'.$file_name;
+$file_path = '../img/uploads/';
 
 $watermark_file_size = $_FILES['upload_watermark']['size'];
 $watermark_file_tmp = $_FILES['upload_watermark']['tmp_name'];
@@ -73,6 +75,7 @@ if(is_uploaded_file($file_tmp)){
         $file_size = getimagesize($data['url']);
         $data['width'] = $file_size[0]; //ширина
         $data['height'] = $file_size[1]; //высота
+        rename($file_path.$file_name, $file_path.'main_image.png');
     }
     else{
         $data['error_msg'] = "Возникла неизвестная ошибка при загрузке изображения!";
@@ -90,6 +93,7 @@ if(is_uploaded_file($watermark_file_tmp)){
         $watermark_file_size = getimagesize($data['url']);
         $data['width'] = $watermark_file_size[0]; //ширина
         $data['height'] = $watermark_file_size[1]; //высота
+        rename($file_path.$watermark_file_name, $file_path.'watermark.png');
     }
     else{
         $data['error_msg'] = "Возникла неизвестная ошибка при загрузке watermark!";
