@@ -87,7 +87,8 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 	}
 };
 
-$('.settings-box__link').click(function(){
+$('.settings-box__link').click(function(event){
+	event.preventDefault();
 	$('.settings-box__link').removeClass('active');
 	$(this).addClass('active');
 	var id = $(this).attr('id'),
