@@ -23,6 +23,8 @@ $(document).ready(function() {
 	filesUpload('#upload_watermark', 'child', '#watermarkBox'); // 3. Элемент, куда вставлять картинку
 });
 
+var i = 0;
+
 function filesUpload(elem, clearElem, placeToPaste) {
 	var elem = elem,
 		clearElem = clearElem,
@@ -32,10 +34,11 @@ function filesUpload(elem, clearElem, placeToPaste) {
 		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
 		maxFileSize: 999000
 	}).on('fileuploadprocessalways', function (e, data) {
-		clearBlocks();
+		clearBlocks(clearElem);
 		var file = data.files;
 		if (file.error) {
 			alertFileType('Выберите картинку, а не что-то еще!');
+			$('.settings__cover').css('height', '520px');
 		}
 	}).on('fileuploadprogressall', function (e, data) {
 		var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -47,9 +50,15 @@ function filesUpload(elem, clearElem, placeToPaste) {
 			$('.progress-bar').fadeOut(300);
 		}, 2000);
 	}).on('fileuploaddone', function (e, data) {
-		$(placeToPaste).find('img').remove();
-		// clearBlocks();
+		//$(placeToPaste).find('img').remove();
+		clearBlocks(clearElem);
 		$.each(data.result.files, function (index, file) {
+			if (i == 0) {
+				$('.settings__cover').css('height', '440px');
+			} else if (i == 1) {
+				$('.settings__cover').css('height', '0');
+			}
+			i++;
 			if (file.url) {
 				var imgMain = $('<img>')
 					.attr('src', file.url)
@@ -67,38 +76,23 @@ function filesUpload(elem, clearElem, placeToPaste) {
 			}
 		});
 	});
-	function alertFileType(text) {
-		$('.alertFileType')
-			.text(text)
-			.fadeIn(200);
-		setTimeout(function() {
-			$('.alertFileType')
-				.fadeOut(200)
-				.text('');
-		}, 3000);
-	}
-	function clearBlocks(clearElem) {
-		var clearElem = clearElem;
-		if (clearElem == 'main') {
-			$('#imgBox').find('*').not('.watermark-box').remove();
-		} else {
-			$('#watermarkBox').find('*').remove();
-		}
-	}
 }
 
-
-//function readURL(input) {
-//	if (input.files && input.files[0]) {
-//		var reader = new FileReader();            
-//		reader.onload = function (e) {
-//			$('.img-box__main').attr('src', e.target.result);
-//		}
-//
-//		reader.readAsDataURL(input.files[0]);
-//	}
-//}
-//
-//$("#upload_img").change(function(){
-//	readURL(this);
-//});
+function alertFileType(text) {
+	$('.alertFileType')
+		.text(text)
+		.fadeIn(200);
+	setTimeout(function() {
+		$('.alertFileType')
+			.fadeOut(200)
+			.text('');
+	}, 3000);
+}
+function clearBlocks(clearElem) {
+	var clearElem = clearElem;
+	if (clearElem == 'main') {
+		$('#imgBox').find('*').not('.watermark-box').remove();
+	} else {
+		$('#watermarkBox').find('*').remove();
+	}
+}

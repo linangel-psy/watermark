@@ -1,8 +1,16 @@
 .settings-box__section {
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 	
 	&:last-child {
 		margin-bottom: 0;
+	}
+	
+	&_label {
+		display: block;
+		
+		&:hover .icon-upload {
+			background-color: #EF6157;
+		}
 	}
 	
 	&_heading {
@@ -52,6 +60,7 @@
 		border-radius: 0 3px 3px 0;
 		position: relative;
 		@include hide-text;
+		
 		
 		&:before {
 			content: '';
