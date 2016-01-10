@@ -1,13 +1,13 @@
 .settings-box__section 
 	.settings-box__section_heading Исходное изображение
-	input(class="settings-box__section_img input-image" name="upload_img" id="upload_img" type="file" accept="image/jpeg,image/png,image/gif,image/jpg")
+	input(class="settings-box__section_img input-image" name="files[]" data-url="server/" id="upload_img" type="file")
 	label(for="upload_img" class="settings-box__section_label")
 		span.input-upload Выберите файл
 		span.icon-upload Выбрать файл
 
 .settings-box__section
 	.settings-box__section_heading Водяной знак
-	input(class="settings-box__section_img input-image" name="upload_watermark" id="upload_watermark" type="file" accept="image/jpeg,image/png,image/gif,image/jpg")
+	input(class="settings-box__section_img input-image" name="files[]" data-url="server/" id="upload_watermark" type="file")
 	label(for="upload_watermark" class="settings-box__section_label")
 		span.input-upload Выберите файл
 		span.icon-upload Выбрать файл
