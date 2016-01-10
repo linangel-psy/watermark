@@ -50,7 +50,7 @@ gulp.task('sass-compile', function () {
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer(['> 5%', 'last 5 versions', 'IE 9']))
+//		.pipe(autoprefixer(['> 5%', 'last 5 versions', 'IE 9']))
 		.pipe(concat("main.min.css"))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(paths.sass.destination));

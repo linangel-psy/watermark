@@ -1,5 +1,5 @@
 ;( function( $, window, document, undefined ) {
-	$('.input-image').each( function() {
+	$('.input-image').each(function () {
 		$('.input-image').on('change', function(e) {
 			var fileName = '',
 				$input = $(this),
@@ -11,8 +11,86 @@
 			if (fileName) {
 				$label.find('.input-upload').html(fileName);
 			} else {
-				$label.html( labelVal );
+				$label.html(labelVal);
 			}
-		})
+		});
 	});
-})( jQuery, window, document );
+})(jQuery, window, document);
+
+
+$(document).ready(function() {
+	filesUpload('#upload_img', 'main', '#imgBox'); // 1. инпут, на который ставить upload; 2. Функция очистки после повторной загрузки
+	filesUpload('#upload_watermark', 'child', '#watermarkBox'); // 3. Элемент, куда вставлять картинку
+});
+
+function filesUpload(elem, clearElem, placeToPaste) {
+	var elem = elem,
+		clearElem = clearElem,
+		placeToPaste = placeToPaste;
+	$(elem).fileupload({
+		dataType: 'json',
+		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+		maxFileSize: 999000
+	}).on('fileuploadprocessalways', function (e, data) {
+		clearBlocks();
+		var file = data.files;
+		if (file.error) {
+			alertFileType('Выберите картинку, а не что-то еще!');
+		}
+	}).on('fileuploadprogressall', function (e, data) {
+		var progress = parseInt(data.loaded / data.total * 100, 10);
+		$('.progress-bar').show().css(
+			'width',
+			progress + '%'
+		);
+		setTimeout(function() {
+			$('.progress-bar').fadeOut(300);
+		}, 2000);
+	}).on('fileuploaddone', function (e, data) {
+		clearBlocks ();
+		$.each(data.result.files, function (index, file) {
+			if (file.url) {
+				var imgMain = $('<img>')
+					.attr('src', file.url);
+				$(placeToPaste)
+					.append(imgMain);
+			} else if (file.error) {
+				alertFileType('Произошла ошибка. Повторите еще раз!');
+			}
+		});
+	});
+	function alertFileType(text) {
+		$('.alertFileType')
+			.text(text)
+			.fadeIn(200);
+		setTimeout(function() {
+			$('.alertFileType')
+				.fadeOut(200)
+				.text('');
+		}, 3000);
+	}
+	function clearBlocks(clearElem) {
+		var clearElem = clearElem;
+		if (clearElem == 'main') {
+			$('#imgBox').find('*').not('.watermark-box').remove();
+		} else {
+			$('#watermarkBox').find('*').remove();
+		}
+	}
+}
+
+
+//function readURL(input) {
+//	if (input.files && input.files[0]) {
+//		var reader = new FileReader();            
+//		reader.onload = function (e) {
+//			$('.img-box__main').attr('src', e.target.result);
+//		}
+//
+//		reader.readAsDataURL(input.files[0]);
+//	}
+//}
+//
+//$("#upload_img").change(function(){
+//	readURL(this);
+//});

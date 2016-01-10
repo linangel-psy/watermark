@@ -9,7 +9,8 @@
 		color: #2e3641;
 		font-size: 14px;
 		display: block;
-		margin-bottom: 10px;
+		text-align: left;
+		margin-bottom: 8px;
 	}
 	
 	&_img {
@@ -23,14 +24,21 @@
 	
 	& .input-upload {
 		width: 180px;
-		padding: 3px 5px;
+		padding: 4px 5px;
+		height: 27px;
 		display: inline-block;
 		border: 1px solid #9eb2c0;
 		cursor: pointer;
+		text-align: left;
 		border-right: 0;
 		box-sizing: border-box;
 		vertical-align: middle;
 		border-radius: 3px 0 0 3px;
+		color: #9eb2c0;
+		font-size: 12px;
+		white-space: nowrap;
+		overflow:hidden !important;
+		text-overflow: ellipsis;
 	}
 	
 	& .icon-upload {
@@ -52,4 +60,23 @@
 		}
 	}
 
+}
+
+.alertFileType {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	padding: 20px;
+	background: #C74E4E;
+	color: #fff;
+	border-radius: 5px;
+	display: none;
+}
+.progress-bar {
+	position: fixed;
+	height: 10px;
+	background-color: #B13636;
+	top: 0;
+	width: 0;
+	display: none;
 }
