@@ -3,7 +3,7 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 		proportionsW = imgW / boxW;
 	if (proportionsH < 1 && proportionsW < 1) {
 		setBoxSize(box, imgH, imgW);
-		setPosition(box, boxH, boxW, imgH, imgW);
+		setPosition(box, boxH, boxW, imgH, imgW, 'middle-middle');
 	} else {
 		if (proportionsW > proportionsH) {
 			var height = (boxW / imgW) * imgH;

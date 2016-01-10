@@ -58,7 +58,6 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						imgH = this.height,
 						boxH = parseInt($(placeToPaste).parent().css('height')),
 						boxW = parseInt($(placeToPaste).parent().css('width'));
-						console.log(placeToPaste, $(placeToPaste).parent(), boxH, boxW, imgH, imgW);
 						imgSizeCalculation(placeToPaste, boxH, boxW, imgH, imgW);
 						$(placeToPaste).append(imgMain);
 					});
