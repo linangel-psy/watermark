@@ -17,7 +17,7 @@ $imageFileType = pathinfo(basename ($file_name), PATHINFO_EXTENSION);
 $watermark_imageFileType = pathinfo(basename ($watermark_file_name), PATHINFO_EXTENSION);
 
 $data = array();
-
+/*
 if($file_size>3145728){
     $new_file_size = round($file_size/1048576, 2);
     $data['error_msg'] = 'Размер файла составляет '.$new_file_size.'мб.\nДопускаются файлы не более 3мб.';
@@ -63,25 +63,25 @@ if($watermark_imageFileType != "jpg" && $watermark_imageFileType != "png" && $wa
     echo $data['error_msg'];
     exit;
 }
-
-/*----------------------------------------------------------------*/
+*/
 
 if(is_uploaded_file($file_tmp)){
-    if(move_uploaded_file($file_tmp, $file_dist)){
-        $data['msg'] = "Изображение загружено";
-        $data['error_msg'] = '';
-        $data['url'] = $file_dist;
-        $data['name'] = $file_name;
-        $file_size = getimagesize($data['url']);
-        $data['width'] = $file_size[0]; //ширина
-        $data['height'] = $file_size[1]; //высота
-        rename($file_path.$file_name, $file_path.'main_image.png');
-    }
-    else{
-        $data['error_msg'] = "Возникла неизвестная ошибка при загрузке изображения!";
-        $data['url'] = '';
-        exit;
-    }
+    if(is_dir('uploads'))
+        if(move_uploaded_file($file_tmp, $file_dist)){
+            $data['msg'] = "Изображение загружено";
+            $data['error_msg'] = '';
+            $data['url'] = $file_dist;
+            $data['name'] = $file_name;
+            $file_size = getimagesize($data['url']);
+            $data['width'] = $file_size[0]; //ширина
+            $data['height'] = $file_size[1]; //высота
+            rename($file_path.$file_name, $file_path.'main_image.png');
+        }
+        else{
+            $data['error_msg'] = "Возникла неизвестная ошибка при загрузке изображения!";
+            $data['url'] = '';
+            exit;
+        }
 }
 
 if(is_uploaded_file($watermark_file_tmp)){
@@ -102,5 +102,4 @@ if(is_uploaded_file($watermark_file_tmp)){
     }
 }
 
-echo $data['message'] = "Все было успешно загружено!";
 exit;
