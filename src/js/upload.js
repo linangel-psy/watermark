@@ -47,13 +47,22 @@ function filesUpload(elem, clearElem, placeToPaste) {
 			$('.progress-bar').fadeOut(300);
 		}, 2000);
 	}).on('fileuploaddone', function (e, data) {
-		clearBlocks ();
+		$(placeToPaste).find('img').remove();
+		// clearBlocks();
 		$.each(data.result.files, function (index, file) {
 			if (file.url) {
 				var imgMain = $('<img>')
-					.attr('src', file.url);
-				$(placeToPaste)
-					.append(imgMain);
+					.attr('src', file.url)
+					.load(function() {
+						var imgW = this.width,
+						imgH = this.height,
+						boxH = parseInt($(placeToPaste).parent().css('height')),
+						boxW = parseInt($(placeToPaste).parent().css('width'));
+						console.log(placeToPaste, $(placeToPaste).parent(), boxH, boxW, imgH, imgW);
+						imgSizeCalculation(placeToPaste, boxH, boxW, imgH, imgW);
+						$(placeToPaste).append(imgMain);
+					});
+				
 			} else if (file.error) {
 				alertFileType('Произошла ошибка. Повторите еще раз!');
 			}
