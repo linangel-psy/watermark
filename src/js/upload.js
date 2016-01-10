@@ -23,7 +23,6 @@ $(document).ready(function() {
 	filesUpload('#upload_watermark', 'child', '#watermarkBox'); // 3. Элемент, куда вставлять картинку
 });
 
-var i = 0;
 
 function filesUpload(elem, clearElem, placeToPaste) {
 	var elem = elem,
@@ -36,9 +35,16 @@ function filesUpload(elem, clearElem, placeToPaste) {
 	}).on('fileuploadprocessalways', function (e, data) {
 		clearBlocks(clearElem);
 		var file = data.files;
+		
 		if (file.error) {
-			alertFileType('Выберите картинку, а не что-то еще!');
-			$('.settings__cover').css('height', '520px');
+			alertFileType('Неверный формат файла');
+			if (placeToPaste == '#imgBox') {
+				$('.settings__cover').css('height', '520px');
+				$('.input-upload').text('Выберите картинку');
+			} else {
+				$('.settings__cover').css('height', '440px');
+				$(elem).next('label').find('.input-upload').text('Выберите картинку');
+			}
 		}
 	}).on('fileuploadprogressall', function (e, data) {
 		var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -52,12 +58,12 @@ function filesUpload(elem, clearElem, placeToPaste) {
 	}).on('fileuploaddone', function (e, data) {
 		clearBlocks(clearElem);
 		$.each(data.result.files, function (index, file) {
-			if (i == 0) {
+			if (placeToPaste == '#imgBox') {
 				$('.settings__cover').css('height', '440px');
-			} else if (i == 1) {
+			} else {
 				$('.settings__cover').css('height', '0');
 			}
-			i++;
+			
 			if (file.url) {
 				var imgMain = $('<img>')
 					.attr('src', file.url)
