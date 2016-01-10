@@ -1050,12 +1050,24 @@ class UploadHandler
         // Free memory:
         $this->destroy_image_object($file_path);
     }
+	
+	protected function generate_unique_filename($filename = "") {
+		$extension = "";
+		if ( $filename != "" ) {
+			$extension = pathinfo($filename , PATHINFO_EXTENSION);
+			if ( $extension != "" ) {
+				$extension = "." . $extension;
+			}
+		}
+		return md5(date('Y-m-d H:i:s:u')) . $extension;
+	}
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
             $index = null, $content_range = null) {
         $file = new \stdClass();
-        $file->name = $this->get_file_name($uploaded_file, $name, $size, $type, $error,
-            $index, $content_range);
+        //$file->name = $this->get_file_name($uploaded_file, $name, $size, $type, $error,
+        //    $index, $content_range);
+		$file->name = $this->generate_unique_filename($name);
         $file->size = $this->fix_integer_overflow((int)$size);
         $file->type = $type;
         if ($this->validate($uploaded_file, $file, $error, $index)) {
