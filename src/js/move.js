@@ -1,10 +1,16 @@
 // Сохраняем максимальное и минимальное значения спиннеров
-var maxX = $("#imgBox").width() - $("#watermarkBox").width();
-var maxY = $("#imgBox").height() - $("#watermarkBox").height();
+var setMax = function() {
+	var maxX = $("#imgBox").width() - $("#watermarkBox").width();
+	var maxY = $("#imgBox").height() - $("#watermarkBox").height();
+	max = [maxX, maxY];
+	return max;
+};
 
 // Определяем перемещение по X
-var spinnerX = $( "#x-coordinates" ).spinner({
+var spinnerX = $( "#coordinatesX" ).spinner({
 	spin: function( event, ui ) {
+		maxX = max[0];
+		$( "#coordinatesX" ).spinner({min: 0, max: maxX});
 		if ( ui.value <= maxX && ui.value >= 0 ) {
 			ui.value += 1;
 		}
@@ -14,13 +20,15 @@ var spinnerX = $( "#x-coordinates" ).spinner({
 			ui.value = 0;
 		}
 		$("#watermarkBox").css("left", ui.value);
-		$('#x-coordinates').attr( "value", ui.value );
+		$('#coordinatesX').spinner( "value", ui.value );
 	}		
 });
 
 // Определяем перемещение по Y
-var spinnerY = $( "#y-coordinates" ).spinner({
+var spinnerY = $( "#coordinatesY" ).spinner({
 	spin: function( event, ui ) {
+		maxY = max[1];
+		$( "#coordinatesY" ).spinner({min: 0, max: maxY});
 		if ( ui.value <= maxY && ui.value >= 0 ) {
 			ui.value -= 1;
 		}
@@ -30,7 +38,7 @@ var spinnerY = $( "#y-coordinates" ).spinner({
 			ui.value = 0;
 		}
 		$("#watermarkBox").css("top", ui.value);
-		$('#y-coordinates').attr( "value", ui.value );
+		$('#coordinatesY').spinner( "value", ui.value );
 	}	
 });
 
