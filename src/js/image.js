@@ -115,8 +115,8 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			break;
 	}
 	if (box == '#watermarkBox') {
-		$('.settings-box__input_x').attr('value', left);
-		$('.settings-box__input_y').attr('value', top);
+		spinnerX.spinner( "value", parseInt($("#watermarkBox").css("left")) );
+    	spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
 	}
 };
 
