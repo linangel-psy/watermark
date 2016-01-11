@@ -1,0 +1,12 @@
+{
+    "name": "watermark/slavazuryanov",
+    "authors": [
+        {
+            "name": "Slava Zuryanov",
+            "email": "slava.zuryanov@gmail.com"
+        }
+    ],
+    "require": {
+        "smottt/wideimage": "^1.1"
+    }
+}
