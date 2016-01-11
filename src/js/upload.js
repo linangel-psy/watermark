@@ -74,6 +74,7 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						boxW = parseInt($(placeToPaste).parent().css('width'));
 						imgSizeCalculation(placeToPaste, boxH, boxW, imgH, imgW);
 						$(placeToPaste).append(imgMain);
+						setMax();
 					});
 				
 			} else if (file.error) {

@@ -82,45 +82,59 @@
 	color: #444a53;
 	font-size: 16px;
 }
+.ui-spinner{
+	border: none;
+}
 .settings-box__input{
 	width: 44px;
-	height: 40px;
-	font-size: 13px;
+	height: 42px;
 	text-align: center;
 	border: 1px solid #cecece;
 	background: #F6F6f6;
 	border-radius: 4px;
-	font-family: roboto-light;
+	font-family: roboto-light !important;
 	font-size: 24px;
 	color: #444a53;
+	margin-top: 0px;
 }
-
-.coordinates-link-container{
-	height: 33px;
+.ui-widget{
+	font-family: roboto-light;
+	font-size: 24px;
 }
 
 .settings-box__coordinates_x{
-	margin-bottom: 13px;
+	margin-bottom: 8px;
 }
-
-.settings-box__coordinates-link{
+.ui-spinner-button:hover{
+	background: none !important;
+	cursor: pointer;
+}
+.ui-button-text{
 	display: block;
+	margin-top: 5px;
 	@include sprite-image($arrow-bottom);
 	@include sprite-width($arrow-bottom);
 	@include sprite-height($arrow-bottom);
 }
 
-.settings-box__coordinates-link_top{
-	@include sprite-position($arrow-top);
-	margin-bottom: 20px;
-	&:hover{
-		@include sprite-position($arrow-top-hover);
+.ui-spinner-up{
+	.ui-button-text{
+		padding: 0;
+		@include sprite-position($arrow-top);
 	}
 }
 
-.settings-box__coordinates-link_bottom{
-	@include sprite-position($arrow-bottom);
-	&:hover{
-		@include sprite-position($arrow-bottom-hover)
+.ui-spinner-down{
+	.ui-button-text{
+		padding: 0;
+		margin-top: 8px;
+		@include sprite-position($arrow-bottom);
 	}
+}
+.ui-spinner-down:hover > .ui-button-text{
+	@include sprite-position($arrow-bottom-hover)
+}
+
+.ui-spinner-up:hover > .ui-button-text{
+	@include sprite-position($arrow-top-hover)
 }
