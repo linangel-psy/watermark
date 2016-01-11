@@ -12,18 +12,18 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	if (proportionsH < 1 && proportionsW < 1) {
 		setBoxSize(box, imgH, imgW);
 		setPosition(box, boxH, boxW, imgH, imgW, position);
-		watermarkOpacity();
+		watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
 	} else {
 		if (proportionsW > proportionsH) {
 			var height = (boxW / imgW) * imgH;
 			setBoxSize(box, height, boxW);
 			setPosition(box, boxH, boxW, height, boxW, position);
-			watermarkOpacity();
+			watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
 		} else {
 			var width = (boxH / imgH) * imgW;
 			setBoxSize(box, boxH, width);
 			setPosition(box, boxH, boxW, boxH, width, position);
-			watermarkOpacity();
+			watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
 		}
 	};
 };
