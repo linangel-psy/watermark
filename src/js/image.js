@@ -116,7 +116,7 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 	}
 	if (box == '#watermarkBox') {
 		spinnerX.spinner( "value", parseInt($("#watermarkBox").css("left")) );
-    	spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
+		spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
 	}
 };
 
