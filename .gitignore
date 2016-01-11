@@ -2,7 +2,6 @@ node_modules
 www/bower
 .DS_Store
 .idea
-composer.local
 www/index.html
 www/css/main.min.css
 www/js/main.min.js

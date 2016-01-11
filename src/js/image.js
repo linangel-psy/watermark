@@ -5,6 +5,7 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	}
 	else if (box == '#watermarkBox') {
 		position = 'bottom-right';
+		$('#bottom-right').addClass('active');
 	};
 	var proportionsH = imgH / boxH,
 		proportionsW = imgW / boxW;
@@ -47,8 +48,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': 0,
 				'left': 0
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'top-middle':
 			var top = 0,
@@ -57,8 +56,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'top-right':
 			var top = 0,
@@ -67,8 +64,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'middle-left':
 			var top = Math.round((outH - insideH) / 2),
@@ -77,8 +72,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'middle-middle':
 			var top = Math.round((outH - insideH) / 2),
@@ -87,8 +80,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'middle-right':
 			var top = Math.round((outH - insideH) / 2),
@@ -97,8 +88,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'bottom-left':
 			var top = Math.round((outH - insideH)),
@@ -107,8 +96,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'bottom-middle':
 			var top = Math.round((outH - insideH)),
@@ -117,8 +104,6 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
 		case 'bottom-right':
 			var top = Math.round((outH - insideH)),
@@ -127,9 +112,11 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 				'top': top,
 				'left': left
 			});
-			$('.settings-box__input_x').attr('value', left);
-			$('.settings-box__input_y').attr('value', top);
 			break;
+	}
+	if (box == '#watermarkBox') {
+		$('.settings-box__input_x').attr('value', left);
+		$('.settings-box__input_y').attr('value', top);
 	}
 };
 
