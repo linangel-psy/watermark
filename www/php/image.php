@@ -1,5 +1,5 @@
 <?php
-require_once "../../composer.local/vendor/autoload.php";
+require_once "../composer.local/vendor/autoload.php";
 use \WideImage\WideImage as WideImage;
 session_start();
 
