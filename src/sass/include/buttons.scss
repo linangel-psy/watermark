@@ -1,0 +1,115 @@
+.lang-buttons{
+position: absolute;
+top:101px;
+}
+
+.lang__link{
+	display: block;
+	height: 32px;
+	width: 41px;
+	text-decoration: none;
+	color: #8e9298;
+	padding-left: 3px;
+	background-color:rgba(255,255,255,.7);
+
+
+
+	&:hover{
+	color: #444a53;
+}
+
+}
+
+.soc-buttons{
+position: absolute;
+}
+
+
+
+.lang-block{
+	height:32px;
+	width:44px;
+	color:#8e9298;
+	vertical-align:middle;
+	margin-bottom:1px;
+	font-size:19px;
+	padding:5px 0;
+	box-sizing:border-box;
+	font-family:SegoeUILight;
+}
+
+
+
+.soc-buttons{
+	top:188px;
+	left:-44px;
+
+	&:hover{
+		left: 0;
+		transition: all .3s ease 0s;
+	}
+}
+
+.soc-thumbsup{
+	cursor: pointer;
+	position: absolute;
+	left: 44px;
+	@include sprite-image($thumbsup);
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 44px;
+	display: block;
+	background-color:rgba(255,255,255,.7);
+	background-position: -469px 4px;
+
+	&:hover{
+		background-position: -515px 4px;
+		
+
+	}
+}
+
+
+
+.soc-icons__link-fb{
+	@include sprite-image($fb);
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 44px;
+	display: block;
+	background-color:rgba(255,255,255,.7);
+	background-position: -155px 7px;
+
+	&:hover{
+		background-position: -120px 7px;
+	}
+
+}
+
+.soc-icons__link-tw{
+	@include sprite-image($tw);
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 44px;
+	display: block;
+	background-color:rgba(255,255,255,.7);
+	background-position: -610px 7px;
+
+	&:hover{
+		background-position: -562px 7px;
+	}
+}
+
+.soc-icons__link-vk{
+	@include sprite-image($vk);
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 44px;
+	display: block;
+	background-color:rgba(255,255,255,.7);
+	background-position: -712px 7px;
+
+	&:hover{
+		background-position: -660px 7px;
+	}
+}
