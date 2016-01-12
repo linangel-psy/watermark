@@ -19,6 +19,7 @@
 
 
 $(document).ready(function() {
+	
 	filesUpload('#upload_img', 'main', '#imgBox'); // 1. инпут, на который ставить upload; 2. Функция очистки после повторной загрузки
 	filesUpload('#upload_watermark', 'child', '#watermarkBox'); // 3. Элемент, куда вставлять картинку
 });
@@ -68,9 +69,9 @@ function filesUpload(elem, clearElem, placeToPaste) {
 				var imgMain = $('<img>')
 					.attr('src', file.url)
 					.load(function() {
-						var imgW = this.width,
-						imgH = this.height,
-						boxH = parseInt($(placeToPaste).parent().css('height')),
+						imgW = this.width;
+						imgH = this.height;
+						boxH = parseInt($(placeToPaste).parent().css('height'));
 						boxW = parseInt($(placeToPaste).parent().css('width'));
 						imgSizeCalculation(placeToPaste, boxH, boxW, imgH, imgW);
 						$(placeToPaste).append(imgMain);
