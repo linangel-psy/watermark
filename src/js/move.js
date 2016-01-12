@@ -51,3 +51,20 @@ $( "#watermarkBox" ).draggable({
 		spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
 	}
 });
+
+// Смена вида watermark
+$('.settings-box-switch__link').click(function(event){
+	event.preventDefault();
+	$('.settings-box-switch__link').removeClass('active');
+	$(this).addClass('active');
+	if ($(this).attr('id') == 'tileSwitch') {
+		$('.settings-box__list').addClass('active');
+		$('.settings-box__link').removeClass('active');
+		
+	}
+	else if ($(this).attr('id') == 'oneSwitch') {
+		$('.settings-box__list').removeClass('active');
+		
+	}
+});
+$('#oneSwitch').trigger('click');
