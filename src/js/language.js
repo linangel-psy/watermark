@@ -6,7 +6,6 @@ var language = {
 			'#asideTitle': 'Настройки',
 			'#uploadOrigin': 'Исходное изображение',
 			'#uploadWatermark': 'Водяной знак',
-			'.loadImg': 'Выберите картинку',
 			'#position': 'Положение',
 			'#opacity': 'Прозрачность',
 			'#footer': '© 2016, Это мой сайт, пожалуйста, не копируйте и не воруйте его'
@@ -14,6 +13,9 @@ var language = {
 		buttons: {
 			'#submit': 'Скачать',
 			'#reset': 'Сброс'
+		},
+		placeholder: {
+			'.loadImg': 'Выберите картинку'
 		}
 	},
 	en: {
@@ -23,7 +25,6 @@ var language = {
 			'#asideTitle': 'Settings',
 			'#uploadOrigin': 'Original image',
 			'#uploadWatermark': 'Watermark',
-			'.loadImg': 'Choose an image',
 			'#position': 'Position',
 			'#opacity': 'Transparency',
 			'#footer': '© 2016, This is my webpage. Please, do not copy or steal it'
@@ -31,6 +32,9 @@ var language = {
 		buttons: {
 			'#submit': 'Download',
 			'#reset': 'Reset'
+		},
+		placeholder: {
+			'.loadImg': 'Choose an image'
 		}
 	}
 };
@@ -40,6 +44,9 @@ var setLanguage = function(lang){
 	}
 	for (var key in lang.buttons){
 		$(key).val(lang.buttons[key]);
+	};
+	for (var key in lang.placeholder){
+		$(key).attr('placeholder',lang.placeholder[key]);
 	};
 };
 
