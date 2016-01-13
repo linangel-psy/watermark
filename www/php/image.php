@@ -7,8 +7,8 @@ $x_coordinates = $_POST['x-coordinates'];
 $y_coordinates = $_POST['y-coordinates'];
 $slider_opacity = $_POST['opacity'];
 
-$image = WideImage::load(__DIR__.'\..\img\uploads\main_image.png');
-$watermark = WideImage::load(__DIR__.'\..\img\uploads\watermark.png');
+$image = WideImage::load(__DIR__.'\..\img\uploads\/'.$_POST['files'][0].'.png');
+$watermark = WideImage::load(__DIR__.'\..\img\uploads\/'.$_POST['files'][1].'.png');
 
 $new_image = $image->merge($watermark, $x_coordinates, $y_coordinates, $slider_opacity);
 $new_image->saveToFile(__DIR__.'\..\img\uploads\new_image.png');
