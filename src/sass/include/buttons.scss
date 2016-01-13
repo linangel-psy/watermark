@@ -1,7 +1,12 @@
-.lang-buttons{
-position: absolute;
-top:101px;
+.fix-social {
+	position: fixed;
+	top: 50%;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	z-index: 999;
 }
+
 
 .lang__link{
 	display: block;
@@ -12,8 +17,6 @@ top:101px;
 	padding-left: 3px;
 	background-color:rgba(255,255,255,.7);
 
-
-
 	&:hover{
 	color: #444a53;
 }
@@ -21,10 +24,22 @@ top:101px;
 }
 
 .soc-buttons{
-position: absolute;
+	position: relative;
 }
 
-
+.soc-icons-item {
+	width: 44px;
+	height: 44px;
+	display: block;
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.6);
+	
+	& a {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}
 
 .lang-block{
 	height:32px;
@@ -41,12 +56,11 @@ position: absolute;
 
 
 .soc-buttons{
-	top:188px;
 	left:-44px;
-
+	top: 20px;
 	&:hover{
 		left: 0;
-		transition: all .3s ease 0s;
+		transition: all .3s ease;
 	}
 }
 
@@ -54,62 +68,57 @@ position: absolute;
 	cursor: pointer;
 	position: absolute;
 	left: 44px;
-	@include sprite-image($thumbsup);
-	background-repeat: no-repeat;
 	height: 40px;
 	width: 44px;
 	display: block;
-	background-color:rgba(255,255,255,.7);
-	background-position: -469px 4px;
-
-	&:hover{
-		background-position: -515px 4px;
-		
-
+	background-color: rgba(255, 255, 255, 0.6);
+	
+	&:before {
+		content: '';
+		display: block;
+		@include center;
+		@include sprite($thumbsup);
+	}
+	&:hover:before{
+		@include sprite-position($thumbsup-hover);
 	}
 }
 
 
 
 .soc-icons__link-fb{
-	@include sprite-image($fb);
-	background-repeat: no-repeat;
-	height: 40px;
-	width: 44px;
-	display: block;
-	background-color:rgba(255,255,255,.7);
-	background-position: -155px 7px;
-
-	&:hover{
-		background-position: -120px 7px;
+	
+	&:before {
+		content: '';
+		@include center;
+		@include sprite($fb);
+	}
+	&:hover:before{
+		@include sprite-position($fb-hover);
 	}
 
 }
 
 .soc-icons__link-tw{
-	@include sprite-image($tw);
-	background-repeat: no-repeat;
-	height: 40px;
-	width: 44px;
-	display: block;
-	background-color:rgba(255,255,255,.7);
-	background-position: -610px 7px;
-
-	&:hover{
-		background-position: -562px 7px;
+	
+	&:before {
+		content: '';
+		@include center;
+		@include sprite($tw);
+	}
+	&:hover:before{
+		@include sprite-position($tw-hover);
 	}
 }
 
 .soc-icons__link-vk{
-	@include sprite-image($vk);
-	background-repeat: no-repeat;
-	height: 40px;
-	width: 44px;
-	display: block;
-	background-color:rgba(255,255,255,.7);
-	background-position: -712px 7px;
-
-	&:hover{
-		background-position: -660px 7px;
+	
+	&:before {
+		content: '';
+		@include center;
+		@include sprite($vk);
+	}
+	&:hover:before{
+		@include sprite-position($vk-hover);
 	}
 }

@@ -1,12 +1,13 @@
-.lang-buttons
-	.lang-block.lang-rus
-		a(href="#").lang__link РУС
-	.lang-block.lang-eng
-		a(href="#").lang__link ENG
-.soc-buttons
-	- var icons =  ['fb', 'tw', 'vk']
-	.soc-thumbsup
-	.soc-icons-container
-		each icon in icons
-			div(class="soc-icons-"+ icon)
-				a(href="#" class="soc-icons__link-" + icon )
+.fix-social
+	.lang-buttons
+		.lang-block.lang-rus
+			a(href="#").lang__link РУС
+		.lang-block.lang-eng
+			a(href="#").lang__link ENG
+	.soc-buttons
+		- var icons =  ['fb', 'tw', 'vk']
+		.soc-thumbsup
+		ul.soc-icons-container
+			each icon in icons
+				li(class="soc-icons-item")
+					a(href="#" class="soc-icons__link-" + icon )
