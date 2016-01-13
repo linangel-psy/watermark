@@ -57,12 +57,26 @@ $('.settings-box-switch__link').click(function(event){
 	event.preventDefault();
 	$('.settings-box-switch__link').removeClass('active');
 	$(this).addClass('active');
+	var allLabel = $('.coordinates-label');
 	if ($(this).attr('id') == 'tileSwitch') {
+		$(allLabel[0])
+			.attr('class', 'coordinates-label')
+			.addClass('coordinates-label-arrow-top');
+		$(allLabel[1])
+			.attr('class', 'coordinates-label')
+			.addClass('coordinates-label-arrow-left');
 		$('.settings-box__list').addClass('active');
 		$('.settings-box__link').removeClass('active');
 		
+		
 	}
 	else if ($(this).attr('id') == 'oneSwitch') {
+		$(allLabel[0])
+			.attr('class', 'coordinates-label')
+			.addClass('coordinates-label-x');
+		$(allLabel[1])
+			.attr('class', 'coordinates-label')
+			.addClass('coordinates-label-y');
 		$('.settings-box__list').removeClass('active');
 		
 	}
