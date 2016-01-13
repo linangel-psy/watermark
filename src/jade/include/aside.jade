@@ -1,6 +1,6 @@
 aside.settings
 	.settings__cover
-	.settings__title Настройки
+	.settings__title#asideTitle Настройки
 	form(id="main-form" action="php/image.php" enctype="multipart/form-data" method="post")
 		.settings-box.settings-box_upload
 			include ../include/upload
@@ -9,9 +9,9 @@ aside.settings
 			include ../include/move
 		.settings-divider
 		.settings-box.settings-box_opacity
-			span.settings-box__name Прозрачность
+			span.settings-box__name#opacity Прозрачность
 			include ../include/opacity
 		.settings-divider
 		.settings-box.settings-box_buttons
-			input(type="submit" class="settings-box__button settings-box__button_submit" value="Скачать")
-			input(type="reset" class="settings-box__button settings-box__button_reset" value="Сброс")
+			input.settings-box__button.settings-box__button_submit#submit(type="submit" value="Скачать")
+			input.settings-box__button.settings-box__button_reset#reset(type="reset" value="Сброс")
