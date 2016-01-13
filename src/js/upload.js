@@ -41,10 +41,8 @@ function filesUpload(elem, clearElem, placeToPaste) {
 			alertFileType('Неверный формат файла');
 			if (placeToPaste == '#imgBox') {
 				$('.settings__cover').css('height', '520px');
-				$('.input-upload').val('Выберите картинку');
 			} else {
 				$('.settings__cover').css('height', '440px');
-				$(elem).next('label').find('.input-upload').val('Выберите картинку');
 			}
 		}
 	}).on('fileuploadprogressall', function (e, data) {
