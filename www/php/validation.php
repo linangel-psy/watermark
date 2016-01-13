@@ -17,6 +17,7 @@ $imageFileType = pathinfo(basename ($file_name), PATHINFO_EXTENSION);
 $watermark_imageFileType = pathinfo(basename ($watermark_file_name), PATHINFO_EXTENSION);
 
 $data = array();
+
 /*
 if($file_size>3145728){
     $new_file_size = round($file_size/1048576, 2);
@@ -75,7 +76,6 @@ if(is_uploaded_file($file_tmp)){
             $file_size = getimagesize($data['url']);
             $data['width'] = $file_size[0]; //ширина
             $data['height'] = $file_size[1]; //высота
-            rename($file_path.$file_name, $file_path.'main_image.png');
         }
         else{
             $data['error_msg'] = "Возникла неизвестная ошибка при загрузке изображения!";
@@ -93,7 +93,6 @@ if(is_uploaded_file($watermark_file_tmp)){
         $watermark_file_size = getimagesize($data['url']);
         $data['width'] = $watermark_file_size[0]; //ширина
         $data['height'] = $watermark_file_size[1]; //высота
-        rename($file_path.$watermark_file_name, $file_path.'watermark.png');
     }
     else{
         $data['error_msg'] = "Возникла неизвестная ошибка при загрузке watermark!";
