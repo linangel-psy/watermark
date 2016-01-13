@@ -9,7 +9,7 @@
 				fileName = e.target.value.split('\\').pop();
 			}
 			if (fileName) {
-				$label.find('.input-upload').html(fileName);
+				$label.find('.input-upload').val(fileName);
 			} else {
 				$label.html(labelVal);
 			}
@@ -41,10 +41,10 @@ function filesUpload(elem, clearElem, placeToPaste) {
 			alertFileType('Неверный формат файла');
 			if (placeToPaste == '#imgBox') {
 				$('.settings__cover').css('height', '520px');
-				$('.input-upload').text('Выберите картинку');
+				$('.input-upload').val('Выберите картинку');
 			} else {
 				$('.settings__cover').css('height', '440px');
-				$(elem).next('label').find('.input-upload').text('Выберите картинку');
+				$(elem).next('label').find('.input-upload').val('Выберите картинку');
 			}
 		}
 	}).on('fileuploadprogressall', function (e, data) {
