@@ -21,6 +21,7 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 		}
 		$("#watermarkBox").css("left", ui.value);
 		$('#coordinatesX').spinner( "value", ui.value );
+		$('#originalX').val(Math.ceil(ui.value / proportions));
 	}		
 });
 
@@ -39,6 +40,7 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 		}
 		$("#watermarkBox").css("top", ui.value);
 		$('#coordinatesY').spinner( "value", ui.value );
+		$('#originalY').val(Math.ceil(ui.value / proportions));
 	}	
 });
 

@@ -75,6 +75,12 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						$(placeToPaste).append(imgMain);
 						setMax();
 					});
+				if (placeToPaste == '#imgBox') {
+					$('#urlImg').val(file.url);
+				}
+				else {
+					$('#urlWatermark').val(file.url);
+				}
 				
 			} else if (file.error) {
 				alertFileType('Произошла ошибка. Повторите еще раз!');
