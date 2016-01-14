@@ -38,6 +38,31 @@ var language = {
 		}
 	}
 };
+var setCookie = function(name, value, options) {
+	options = options || {};
+
+	var expires = options.expires;
+
+	if (typeof expires == "number" && expires) {
+		var d = new Date();
+		d.setTime(d.getTime() + expires * 1000);
+		expires = options.expires = d;
+	}
+	if (expires && expires.toUTCString) {
+		options.expires = expires.toUTCString();
+	}
+
+	var updatedCookie = name + "=" + value;
+	document.cookie = updatedCookie;
+};
+var getCookie = function(name) {
+	var matches = document.cookie;
+	var str = name + '='
+	var langIndex = matches.indexOf(str) + str.length
+	var lang = matches.substring(langIndex, langIndex + 3);
+	return matches ? lang : 'ru';
+}
+
 var setLanguage = function(lang){
 	for (var key in lang.text){
 		$(key).empty().text(lang.text[key]);
@@ -52,6 +77,11 @@ var setLanguage = function(lang){
 
 $(document).ready(function() {
 	$('.lang-block').click(function(){
-		setLanguage(language[$(this).attr('id')]);
+		var id = $(this).attr('id');
+		setCookie('language', id, {expires: 3600});
+		setLanguage(language[id]);
 	});
 });
+
+
+setLanguage(language[getCookie('language')]);

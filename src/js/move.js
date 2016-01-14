@@ -50,10 +50,7 @@ $( "#watermarkBox" ).draggable({
 	drag: function() {
 		valueX = parseInt($("#watermarkBox").css("left"));
 		valueY = parseInt($("#watermarkBox").css("top"));
-		spinnerX.spinner( "value", parseInt($("#watermarkBox").css("left")) );
-		spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
-		$('#originalX').attr('value', Math.ceil(valueX / proportions));
-		$('#originalY').attr('value', Math.ceil(valueY / proportions));
+		setSpinner(valueX, valueY)
 	}
 });
 

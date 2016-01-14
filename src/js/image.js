@@ -112,11 +112,14 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 	if (box == '#watermarkBox') {
 		valueX = parseInt($("#watermarkBox").css("left"));
 		valueY = parseInt($("#watermarkBox").css("top"));
-		spinnerX.spinner( "value", valueX );
-		spinnerY.spinner( "value", valueY );
-		$('#originalX').attr('value', Math.ceil(valueX / proportions));
-		$('#originalY').attr('value', Math.ceil(valueY / proportions));
+		setSpinner(valueX, valueY)
 	}
+};
+var setSpinner = function(valueX, valueY) {
+	spinnerX.spinner( "value", valueX );
+	spinnerY.spinner( "value", valueY );
+	$('#originalX').attr('value', Math.ceil(valueX / proportions));
+	$('#originalY').attr('value', Math.ceil(valueY / proportions));
 };
 
 $('.settings-box__link').click(function(event){
