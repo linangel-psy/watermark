@@ -21,10 +21,9 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 		}
 		$("#watermarkBox").css("left", ui.value);
 		$('#coordinatesX').spinner( "value", ui.value );
-		$('#originalX').val(Math.ceil(ui.value / proportions));
+		$('#originalX').attr('value', Math.ceil(ui.value / proportions));
 	}		
 });
-
 // Определяем перемещение по Y
 var spinnerY = $( "#coordinatesY" ).spinner({
 	spin: function( event, ui ) {
@@ -40,7 +39,7 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 		}
 		$("#watermarkBox").css("top", ui.value);
 		$('#coordinatesY').spinner( "value", ui.value );
-		$('#originalY').val(Math.ceil(ui.value / proportions));
+		$('#originalY').attr('value', Math.ceil(ui.value / proportions));
 	}	
 });
 

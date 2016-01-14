@@ -114,8 +114,8 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			valueY = parseInt($("#watermarkBox").css("top"));
 		spinnerX.spinner( "value", valueX );
 		spinnerY.spinner( "value", valueY );
-		$('#originalX').val(Math.ceil(valueX / proportions));
-		$('#originalY').val(Math.ceil(valueY / proportions));
+		$('#originalX').attr('value', Math.ceil(valueX / proportions));
+		$('#originalY').attr('value', Math.ceil(valueY / proportions));
 	}
 };
 
