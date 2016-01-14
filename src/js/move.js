@@ -50,8 +50,11 @@ $( "#watermarkBox" ).draggable({
 	drag: function() {
 		spinnerX.spinner( "value", parseInt($("#watermarkBox").css("left")) );
 		spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
+		$('#originalX').attr('value', Math.ceil(valueX / proportions));
+		$('#originalY').attr('value', Math.ceil(valueY / proportions));
 	}
 });
+
 
 // Смена вида watermark
 $('.settings-box-switch__link').click(function(event){

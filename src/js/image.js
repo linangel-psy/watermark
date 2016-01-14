@@ -1,4 +1,4 @@
-var proportions;
+var proportions, valueX, valueY;
 var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	var position;
 	if (box == '#imgBox') {
@@ -110,8 +110,8 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			break;
 	}
 	if (box == '#watermarkBox') {
-		var valueX = parseInt($("#watermarkBox").css("left")),
-			valueY = parseInt($("#watermarkBox").css("top"));
+		valueX = parseInt($("#watermarkBox").css("left")),
+		valueY = parseInt($("#watermarkBox").css("top"));
 		spinnerX.spinner( "value", valueX );
 		spinnerY.spinner( "value", valueY );
 		$('#originalX').attr('value', Math.ceil(valueX / proportions));
