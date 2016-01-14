@@ -110,7 +110,7 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			break;
 	}
 	if (box == '#watermarkBox') {
-		valueX = parseInt($("#watermarkBox").css("left")),
+		valueX = parseInt($("#watermarkBox").css("left"));
 		valueY = parseInt($("#watermarkBox").css("top"));
 		spinnerX.spinner( "value", valueX );
 		spinnerY.spinner( "value", valueY );

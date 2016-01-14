@@ -20,7 +20,7 @@ $random = rand(0, getrandmax());
 $dirPath = $_SERVER['DOCUMENT_ROOT'].'/www/img/uploads/';
 $filename = 'team6-'.$random.'.png';
 $createFolders = false;
-$imageQuality = 100;
+$imageQuality = 50;
 
 $main_image->save($dirPath, $filename, $createFolders, $imageQuality);
 
