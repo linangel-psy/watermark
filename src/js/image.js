@@ -1,34 +1,29 @@
+var proportions;
 var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	var position;
 	if (box == '#imgBox') {
 		position = 'middle-middle';
+		var proportionsH = imgH / boxH,
+			proportionsW = imgW / boxW;
+		if (proportionsH < 1 && proportionsW < 1) {
+			proportions = 1
+		} else {
+			if (proportionsW > proportionsH) {
+				proportions = boxW / imgW
+			} else {
+				proportions = boxH / imgH
+			}
+		};
+
 	}
 	else if (box == '#watermarkBox') {
 		position = 'bottom-right';
 		$('#bottom-right').addClass('active');
 	};
-	var proportionsH = imgH / boxH,
-		proportionsW = imgW / boxW;
-	if (proportionsH < 1 && proportionsW < 1) {
-		setBoxSize(box, imgH, imgW);
-		setPosition(box, boxH, boxW, imgH, imgW, position);
-		watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
-	} else {
-		if (proportionsW > proportionsH) {
-			var height = (boxW / imgW) * imgH;
-			setBoxSize(box, height, boxW);
-			setPosition(box, boxH, boxW, height, boxW, position);
-			watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
-		} else {
-			var width = (boxH / imgH) * imgW;
-			setBoxSize(box, boxH, width);
-			setPosition(box, boxH, boxW, boxH, width, position);
-			watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
-		}
-	};
-};
-
-var setBoxSize = function(box, insideH, insideW) {
+	var insideH = imgH * proportions,
+		insideW = imgW * proportions;
+	setPosition(box, boxH, boxW, insideH, insideW, position);
+	watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
 	$(box).css({
 		'height': insideH,
 		'width': insideW
@@ -115,8 +110,12 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			break;
 	}
 	if (box == '#watermarkBox') {
-		spinnerX.spinner( "value", parseInt($("#watermarkBox").css("left")) );
-		spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
+		var valueX = parseInt($("#watermarkBox").css("left")),
+			valueY = parseInt($("#watermarkBox").css("top"));
+		spinnerX.spinner( "value", valueX );
+		spinnerY.spinner( "value", valueY );
+		$('#originalX').val(Math.ceil(valueX / proportions));
+		$('#originalY').val(Math.ceil(valueY / proportions));
 	}
 };
 
