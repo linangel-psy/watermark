@@ -10,19 +10,18 @@ We are Team 6 from online educational school [Loftschool](http://loftschool.com/
 5. gem install sass
 6. gulp
 ```
-#### Didn's understand, how to use it? :confused:
+#### Didn't understand, how to use it? :confused:
 1. Upload image you want to protect by watermark
 2. Upload watermark
-3. Place watermark in any position you want. You can do this in four ways:
+3. Place watermark in any position you want. You can do this in three ways:
     * By moving watermark with your mouse
     * By pressing on one of nine squares
     * By pressing guiding arrows
-    * By inputting the values you want
 4. Choose yours watermark opacity
-5. Press __*Save*__ to download image with watermark you placed or __*Reset*__ to reset all data
+5. Press __Save__  to download image with watermark you placed or __Reset__  to reset all data
 
 #### This awesome project was made by
-| Slava Nabatchikov	| Lina Ihnatenko | Taras Hvyl | Trofim Samusev | Dima Esin | Slava Zuryanov |
+| Slava Nabatchikov	| Lina Ihnatenko | Taras Khvyl | Dima Esin | Trofim Samusev | Slava Zuryanov |
 | :-: | :-: | :-: | :-: | :-: | :-: |
 | ![Slava Nabatchikov](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) |
-| Mentor :sunglasses: | Team Lead, JS | JS | Page Layout | JS | PHP |
+| Mentor :sunglasses: | Team Lead, JS | JS | JS | Page Layout | PHP |
