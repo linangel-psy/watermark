@@ -13,11 +13,10 @@ We are Team 6 from online educational school [Loftschool](http://loftschool.com/
 #### Didn't understand, how to use it? :confused:
 1. Upload image you want to protect by watermark
 2. Upload watermark
-3. Place watermark in any position you want. You can do this in four ways:
+3. Place watermark in any position you want. You can do this in three ways:
     * By moving watermark with your mouse
     * By pressing on one of nine squares
     * By pressing guiding arrows
-    * By inputting the values you want
 4. Choose yours watermark opacity
 5. Press __Save__  to download image with watermark you placed or __Reset__  to reset all data
 
