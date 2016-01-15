@@ -3,7 +3,7 @@
 	input.hidden-input#urlImg(name="url_img" type="text")
 	input.hidden-input.input-image(name="files[]" data-url="server/" id="upload_img" type="file")
 	label.settings-box__section_label(for="upload_img")
-		input.input-upload.loadImg(type="text" name="upload_img" placeholder="Выберите картинку" readonly)
+		input.input-upload#loadImg(type="text" name="upload_img" placeholder="Выберите картинку" readonly)
 		span.icon-upload.loadImg Выбрать картинку
 
 .settings-box__section
@@ -11,5 +11,5 @@
 	input.hidden-input#urlWatermark(name="url_watermark" type="text")
 	input.hidden-input.input-image(name="files[]" data-url="server/" id="upload_watermark" type="file")
 	label.settings-box__section_label(for="upload_watermark")
-		input.input-upload.loadImg(type="text" name="upload_watermark" placeholder="Выберите картинку" readonly)
+		input.input-upload#loadWatermark(type="text" name="upload_watermark" placeholder="Выберите картинку" value="" readonly)
 		span.icon-upload.loadImg Выбрать картинку

@@ -18,6 +18,7 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	}
 	else if (box == '#watermarkBox') {
 		position = 'bottom-right';
+		$('.settings-box__link').removeClass('active');
 		$('#bottom-right').addClass('active');
 	};
 	var insideH = imgH * proportions,

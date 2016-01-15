@@ -10,6 +10,11 @@
 			}
 			if (fileName) {
 				$label.find('.input-upload').val(fileName);
+				if($input.attr('id') == 'upload_img') {
+					$('#loadWatermark').val('');
+					$('.settings-box__link').removeClass('active');
+					setSpinner(0, 0);
+				}
 			} else {
 				$label.html(labelVal);
 			}
@@ -22,6 +27,7 @@ $(document).ready(function() {
 	
 	filesUpload('#upload_img', 'main', '#imgBox'); // 1. инпут, на который ставить upload; 2. Функция очистки после повторной загрузки
 	filesUpload('#upload_watermark', 'child', '#watermarkBox'); // 3. Элемент, куда вставлять картинку
+	$('#oneSwitch').trigger('click');
 });
 
 

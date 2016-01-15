@@ -50,7 +50,7 @@ $( "#watermarkBox" ).draggable({
 	drag: function() {
 		valueX = parseInt($("#watermarkBox").css("left"));
 		valueY = parseInt($("#watermarkBox").css("top"));
-		setSpinner(valueX, valueY)
+		setSpinner(valueX, valueY);
 	}
 });
 
@@ -84,4 +84,3 @@ $('.settings-box-switch__link').click(function(event){
 		
 	}
 });
-$('#oneSwitch').trigger('click');
