@@ -55,6 +55,11 @@ var setCookie = function(name, value, options) {
 	var updatedCookie = name + "=" + value;
 	document.cookie = updatedCookie;
 };
+
+var deleteCookie = function(name) {
+	document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
 var getCookie = function(name) {
 	var matches = document.cookie;
 	var str = name + '='
@@ -78,10 +83,9 @@ var setLanguage = function(lang){
 $(document).ready(function() {
 	$('.lang-block').click(function(){
 		var id = $(this).attr('id');
+		deleteCookie('language');
 		setCookie('language', id, {expires: 3600});
 		setLanguage(language[id]);
 	});
+	setLanguage(language[getCookie('language')]);
 });
-
-
-setLanguage(language[getCookie('language')]);
