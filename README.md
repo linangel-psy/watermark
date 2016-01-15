@@ -19,7 +19,7 @@ We are Team 6 from online educational school [Loftschool](http://loftschool.com/
     * By pressing guiding arrows
     * By inputting the values you want
 4. Choose yours watermark opacity
-5. Press __*Save*__ to download image with watermark you placed or __*Reset*__ to reset all data
+5. Press __Save__  to download image with watermark you placed or __Reset__  to reset all data
 
 #### This awesome project was made by
 | Slava Nabatchikov	| Lina Ihnatenko | Taras Hvyl | Dima Esin | Trofim Samusev | Slava Zuryanov |
