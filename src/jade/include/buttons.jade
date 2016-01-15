@@ -5,9 +5,11 @@
 		.lang-block.lang-eng#en
 			a(href="#").lang__link ENG
 	.soc-buttons
-		- var icons =  ['fb', 'tw', 'vk']
 		.soc-thumbsup
 		ul.soc-icons-container
-			each icon in icons
 				li(class="soc-icons-item")
-					a(href="#" class="soc-icons__link-" + icon )
+					a(href="javascript://" class="soc-icons__link-fb" id="fb")
+				li(class="soc-icons-item")
+					a(href="javascript://" class="soc-icons__link-tw" id="tw")
+				li(class="soc-icons-item")
+					a(href="javascript://" class="soc-icons__link-vk" id="vk")
