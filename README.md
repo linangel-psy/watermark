@@ -14,15 +14,15 @@ We are Team 6 from online educational school [Loftschool](http://loftschool.com/
 1. Upload image you want to protect by watermark
 2. Upload watermark
 3. Place watermark in any position you want. You can do this in four ways:
-    1. By moving watermark with your mouse
-    2. By pressing on one of nine squares
-    3. By pressing guiding arrows
-    4. By inputting the values you want
+    * By moving watermark with your mouse
+    * By pressing on one of nine squares
+    * By pressing guiding arrows
+    * By inputting the values you want
 4. Choose yours watermark opacity
 5. Press __*Save*__ to download image with watermark you placed or __*Reset*__ to reset all data
 
 #### This awesome project was made by
 | Slava Nabatchikov	| Lina Ihnatenko | Taras Hvyl | Trofim Samusev | Dima Esin | Slava Zuryanov |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| http://i65.tinypic.com/25piglc.png | http://i65.tinypic.com/25piglc.png | http://i65.tinypic.com/25piglc.png | http://i65.tinypic.com/25piglc.png | http://i65.tinypic.com/25piglc.png | http://i65.tinypic.com/25piglc.png |
+| ![Slava Nabatchikov](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) |
 | Mentor :sunglasses: | Team Lead, JS | JS | Page Layout | JS | PHP |
