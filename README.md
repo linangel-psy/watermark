@@ -22,7 +22,7 @@ We are Team 6 from online educational school [Loftschool](http://loftschool.com/
 5. Press __*Save*__ to download image with watermark you placed or __*Reset*__ to reset all data
 
 #### This awesome project was made by
-| Slava Nabatchikov	| Lina Ihnatenko | Taras Hvyl | Trofim Samusev | Dima Esin | Slava Zuryanov |
+| Slava Nabatchikov	| Lina Ihnatenko | Taras Hvyl | Dima Esin | Trofim Samusev | Slava Zuryanov |
 | :-: | :-: | :-: | :-: | :-: | :-: |
 | ![Slava Nabatchikov](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) | ![](http://i65.tinypic.com/25piglc.png) |
-| Mentor :sunglasses: | Team Lead, JS | JS | Page Layout | JS | PHP |
+| Mentor :sunglasses: | Team Lead, JS | JS | JS | Page Layout | PHP |
