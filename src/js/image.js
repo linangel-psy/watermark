@@ -1,34 +1,30 @@
+var proportions, valueX, valueY;
 var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	var position;
 	if (box == '#imgBox') {
 		position = 'middle-middle';
+		var proportionsH = imgH / boxH,
+			proportionsW = imgW / boxW;
+		if (proportionsH < 1 && proportionsW < 1) {
+			proportions = 1
+		} else {
+			if (proportionsW > proportionsH) {
+				proportions = boxW / imgW
+			} else {
+				proportions = boxH / imgH
+			}
+		};
+
 	}
 	else if (box == '#watermarkBox') {
 		position = 'bottom-right';
+		$('.settings-box__link').removeClass('active');
 		$('#bottom-right').addClass('active');
 	};
-	var proportionsH = imgH / boxH,
-		proportionsW = imgW / boxW;
-	if (proportionsH < 1 && proportionsW < 1) {
-		setBoxSize(box, imgH, imgW);
-		setPosition(box, boxH, boxW, imgH, imgW, position);
-		watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
-	} else {
-		if (proportionsW > proportionsH) {
-			var height = (boxW / imgW) * imgH;
-			setBoxSize(box, height, boxW);
-			setPosition(box, boxH, boxW, height, boxW, position);
-			watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
-		} else {
-			var width = (boxH / imgH) * imgW;
-			setBoxSize(box, boxH, width);
-			setPosition(box, boxH, boxW, boxH, width, position);
-			watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
-		}
-	};
-};
-
-var setBoxSize = function(box, insideH, insideW) {
+	var insideH = imgH * proportions,
+		insideW = imgW * proportions;
+	setPosition(box, boxH, boxW, insideH, insideW, position);
+	watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
 	$(box).css({
 		'height': insideH,
 		'width': insideW
@@ -115,9 +111,16 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			break;
 	}
 	if (box == '#watermarkBox') {
-		spinnerX.spinner( "value", parseInt($("#watermarkBox").css("left")) );
-		spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
+		valueX = parseInt($("#watermarkBox").css("left"));
+		valueY = parseInt($("#watermarkBox").css("top"));
+		setSpinner(valueX, valueY)
 	}
+};
+var setSpinner = function(valueX, valueY) {
+	spinnerX.spinner( "value", valueX );
+	spinnerY.spinner( "value", valueY );
+	$('#originalX').attr('value', Math.ceil(valueX / proportions));
+	$('#originalY').attr('value', Math.ceil(valueY / proportions));
 };
 
 $('.settings-box__link').click(function(event){

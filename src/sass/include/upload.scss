@@ -21,14 +21,6 @@
 		margin-bottom: 8px;
 	}
 	
-	&_img {
-		width: 0.1px;
-		height: 0.1px;
-		opacity: 0;
-		overflow: hidden;
-		position: absolute;
-		z-index: -1;
-	}
 	
 	& .input-upload {
 		width: 180px;
@@ -72,7 +64,14 @@
 	}
 
 }
-
+.hidden-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
 .alertFileType {
 	position: fixed;
 	top: 20px;

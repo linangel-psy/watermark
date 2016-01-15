@@ -21,9 +21,9 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 		}
 		$("#watermarkBox").css("left", ui.value);
 		$('#coordinatesX').spinner( "value", ui.value );
+		$('#originalX').attr('value', Math.ceil(ui.value / proportions));
 	}		
 });
-
 // Определяем перемещение по Y
 var spinnerY = $( "#coordinatesY" ).spinner({
 	spin: function( event, ui ) {
@@ -39,6 +39,7 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 		}
 		$("#watermarkBox").css("top", ui.value);
 		$('#coordinatesY').spinner( "value", ui.value );
+		$('#originalY').attr('value', Math.ceil(ui.value / proportions));
 	}	
 });
 
@@ -47,10 +48,12 @@ $( "#watermarkBox" ).draggable({
 	containment: "#imgBox", 
 	scroll: false,
 	drag: function() {
-		spinnerX.spinner( "value", parseInt($("#watermarkBox").css("left")) );
-		spinnerY.spinner( "value", parseInt($("#watermarkBox").css("top")) );
+		valueX = parseInt($("#watermarkBox").css("left"));
+		valueY = parseInt($("#watermarkBox").css("top"));
+		setSpinner(valueX, valueY);
 	}
 });
+
 
 // Смена вида watermark
 $('.settings-box-switch__link').click(function(event){
@@ -81,4 +84,3 @@ $('.settings-box-switch__link').click(function(event){
 		
 	}
 });
-$('#oneSwitch').trigger('click');

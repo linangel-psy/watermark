@@ -10,6 +10,11 @@
 			}
 			if (fileName) {
 				$label.find('.input-upload').val(fileName);
+				if($input.attr('id') == 'upload_img') {
+					$('#loadWatermark').val('');
+					$('.settings-box__link').removeClass('active');
+					setSpinner(0, 0);
+				}
 			} else {
 				$label.html(labelVal);
 			}
@@ -22,6 +27,7 @@ $(document).ready(function() {
 	
 	filesUpload('#upload_img', 'main', '#imgBox'); // 1. инпут, на который ставить upload; 2. Функция очистки после повторной загрузки
 	filesUpload('#upload_watermark', 'child', '#watermarkBox'); // 3. Элемент, куда вставлять картинку
+	$('#oneSwitch').trigger('click');
 });
 
 
@@ -41,10 +47,8 @@ function filesUpload(elem, clearElem, placeToPaste) {
 			alertFileType('Неверный формат файла');
 			if (placeToPaste == '#imgBox') {
 				$('.settings__cover').css('height', '520px');
-				$('.input-upload').val('Выберите картинку');
 			} else {
 				$('.settings__cover').css('height', '440px');
-				$(elem).next('label').find('.input-upload').val('Выберите картинку');
 			}
 		}
 	}).on('fileuploadprogressall', function (e, data) {
@@ -77,6 +81,12 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						$(placeToPaste).append(imgMain);
 						setMax();
 					});
+				if (placeToPaste == '#imgBox') {
+					$('#urlImg').val(file.url);
+				}
+				else {
+					$('#urlWatermark').val(file.url);
+				}
 				
 			} else if (file.error) {
 				alertFileType('Произошла ошибка. Повторите еще раз!');

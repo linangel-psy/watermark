@@ -62,7 +62,7 @@ gulp.task('concat-js', function () {
 	return gulp.src(paths.js.src)
 		.pipe(sourcemaps.init())
 		.pipe(concat('main.min.js'))
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(paths.js.destination));
 });
