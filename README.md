@@ -10,7 +10,7 @@ We are Team 6 from online educational school [Loftschool](http://loftschool.com/
 5. gem install sass
 6. gulp
 ```
-#### Didn's understand, how to use it? :confused:
+#### Didn't understand, how to use it? :confused:
 1. Upload image you want to protect by watermark
 2. Upload watermark
 3. Place watermark in any position you want. You can do this in four ways:
