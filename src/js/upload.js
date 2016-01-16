@@ -81,6 +81,7 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						$(placeToPaste).append(imgMain);
 						setMax();
 					});
+					
 				if (placeToPaste == '#imgBox') {
 					$('#urlImg').val(file.url);
 				}

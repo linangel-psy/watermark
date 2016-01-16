@@ -20,11 +20,14 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 		position = 'bottom-right';
 		$('.settings-box__link').removeClass('active');
 		$('#bottom-right').addClass('active');
+		setTimeout(function() {
+			$('.settings-box__link').removeClass('active');
+		}, 800);
 	};
 	var insideH = imgH * proportions,
 		insideW = imgW * proportions;
 	setPosition(box, boxH, boxW, insideH, insideW, position);
-	watermarkOpacity($( "#sliderOpacity" ).slider( "value" ));
+	watermarkOpacity($( '#sliderOpacity' ).slider( 'value' ));
 	$(box).css({
 		'height': insideH,
 		'width': insideW
@@ -111,14 +114,14 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 			break;
 	}
 	if (box == '#watermarkBox') {
-		valueX = parseInt($("#watermarkBox").css("left"));
-		valueY = parseInt($("#watermarkBox").css("top"));
+		valueX = parseInt($('#watermarkBox').css('left'));
+		valueY = parseInt($('#watermarkBox').css('top'));
 		setSpinner(valueX, valueY)
 	}
 };
 var setSpinner = function(valueX, valueY) {
-	spinnerX.spinner( "value", valueX );
-	spinnerY.spinner( "value", valueY );
+	spinnerX.spinner( 'value', valueX );
+	spinnerY.spinner( 'value', valueY );
 	$('#originalX').attr('value', Math.ceil(valueX / proportions));
 	$('#originalY').attr('value', Math.ceil(valueY / proportions));
 };
@@ -127,6 +130,9 @@ $('.settings-box__link').click(function(event){
 	event.preventDefault();
 	$('.settings-box__link').removeClass('active');
 	$(this).addClass('active');
+	setTimeout(function() {
+		$('.settings-box__link').removeClass('active');
+	}, 800);
 	var id = $(this).attr('id'),
 		outH = $('.img-box').css('height'),
 		outW = $('.img-box').css('width'),
