@@ -1,3 +1,10 @@
+var spinPositionLeft = 'left',
+	spinPositionTop = 'top',
+	saveMarginTop = 0,
+	saveMarginLeft = 0,
+	saveLeft = 0,
+	saveTop = 0;
+
 // Сохраняем максимальное и минимальное значения спиннеров
 var setMax = function() {
 	var maxX = $("#imgBox").width() - $("#watermarkBox").width();
@@ -19,7 +26,7 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 		} else if ( ui.value <= 0 ) {
 			ui.value = 0;
 		}
-		$("#watermarkBox").css("left", ui.value);
+		$("#watermarkBox").css(spinPositionLeft, ui.value);
 		$('#coordinatesX').spinner( "value", ui.value );
 		$('#originalX').attr('value', Math.ceil(ui.value / proportions));
 	}		
@@ -37,7 +44,7 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 		} else if ( ui.value <= 0 ) {
 			ui.value = 0;
 		}
-		$("#watermarkBox").css("top", ui.value);
+		$("#watermarkBox").css(spinPositionTop, ui.value);
 		$('#coordinatesY').spinner( "value", ui.value );
 		$('#originalY').attr('value', Math.ceil(ui.value / proportions));
 	}	
@@ -70,8 +77,13 @@ $('.settings-box-switch__link').click(function(event){
 			.addClass('coordinates-label-arrow-left');
 		$('.settings-box__list').addClass('active');
 		$('.settings-box__link').removeClass('active');
-		
-		
+		spinPositionLeft = 'margin-left';
+		spinPositionTop = 'margin-top';
+		saveLeft = parseInt($("#watermarkBox").css('left'));
+		saveTop = parseInt($("#watermarkBox").css('top'));
+		$("#watermarkBox").css({'top':0,'left':0});
+		$("#watermarkBox").css({'margin-top':saveMarginTop,'margin-left':saveMarginLeft});
+		setSpinner(saveMarginLeft, saveMarginTop);
 	}
 	else if ($(this).attr('id') == 'oneSwitch') {
 		$(allLabel[0])
@@ -81,6 +93,12 @@ $('.settings-box-switch__link').click(function(event){
 			.attr('class', 'coordinates-label')
 			.addClass('coordinates-label-y');
 		$('.settings-box__list').removeClass('active');
-		
+		spinPositionLeft = 'left';
+		spinPositionTop = 'top';
+		saveMarginTop = parseInt($("#watermarkBox").css('margin-top'));
+		saveMarginLeft = parseInt($("#watermarkBox").css('margin-left'));
+		$("#watermarkBox").css({'margin-top':0,'margin-left':0});
+		$("#watermarkBox").css({'top':saveTop,'left':saveLeft});
+		setSpinner(saveLeft, saveTop);
 	}
 });
