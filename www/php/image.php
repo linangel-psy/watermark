@@ -13,16 +13,29 @@ $main_image = ImageWorkshop::initFromPath($main_image_input);
 $watermark = ImageWorkshop::initFromPath($watermark_input);
 
 $watermark->opacity($slider_opacity);
-$main_image->addLayer(1, $watermark, $x_coordinates, $y_coordinates, "LT");
+
+list($watermark_width, $watermark_height) = getimagesize($watermark_input);
+
+$margin_x = $x_coordinates;
+$margin_y = $y_coordinates;
+$watermark_rows;
+$watermark_cols;
+for($i=1; $i<=$watermark_rows; $i++){
+        for($k=1; $k<$watermark_cols; $k++) {
+            $main_image->addLayer(1, $watermark, $x_coordinates, $y_coordinates, "LT");
+            $x_coordinates = $x_coordinates + $watermark_width + $margin_x;
+        }
+    $main_image->addLayer(1, $watermark, $x_coordinates, $y_coordinates, "LT");
+    $y_coordinates = $y_coordinates + $watermark_height + $margin_y;
+    $x_coordinates = $margin_x;
+}
 
 $random = rand(0, getrandmax());
 
 $dirPath = '../img/uploads/';
 $filename = 'team6-'.$random.'.png';
-$createFolders = false;
-$imageQuality = 50;
 
-$main_image->save($dirPath, $filename, $createFolders, $imageQuality);
+$main_image->save($dirPath, $filename, false, 100);
 
 $main_image = '../img/uploads/'.$filename;
 
