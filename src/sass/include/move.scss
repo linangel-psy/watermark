@@ -234,3 +234,8 @@
 .ui-spinner-up:hover > .ui-button-text{
 	@include sprite-position($arrow-top-hover)
 }
+
+
+.tiling-wide {
+	@include center;
+}
