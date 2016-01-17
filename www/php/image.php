@@ -18,8 +18,8 @@ list($watermark_width, $watermark_height) = getimagesize($watermark_input);
 
 $margin_x = $x_coordinates;
 $margin_y = $y_coordinates;
-$watermark_rows;
-$watermark_cols;
+$watermark_rows = $_POST['row'];
+$watermark_cols = $_POST['col'];
 for($i=1; $i<=$watermark_rows; $i++){
         for($k=1; $k<$watermark_cols; $k++) {
             $main_image->addLayer(1, $watermark, $x_coordinates, $y_coordinates, "LT");

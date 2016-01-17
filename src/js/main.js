@@ -3,9 +3,9 @@ $('.settings-box__button_reset').click(function () {
 	$('#imgBox').find('img').remove();
 	$('.input-upload').text('Выберите картинку');
 	$('.settings-box__link').removeClass('active');
-})
+});
 
-$( "#main-form" ).on( 'submit', sendToServer() )
+$( "#main-form" ).on( 'submit', sendToServer);
 
 /*----------- кнопки репоста в соцсети ----------------*/
 var socialShare=function(){
