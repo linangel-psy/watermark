@@ -5,24 +5,6 @@ $('.settings-box__button_reset').click(function () {
 	$('.settings-box__link').removeClass('active');
 });
 
-var phpObject = new Object();
-var sendToServer = function( e ) {
-
-	e.preventDefault();
-
-	if( phpObject.imgURL !== '' && phpObject.watermarkURL !== '' ) {
-		$.ajax({
-			url        : '../php/image.php',
-			type       : 'POST',
-			dataType   : 'json',
-			data       : phpObject,
-		})
-	}
-};
-
-
-$( "#main-form" ).on( 'submit', sendToServer);
-
 /*----------- кнопки репоста в соцсети ----------------*/
 var socialShare=function(){
 	function t(){

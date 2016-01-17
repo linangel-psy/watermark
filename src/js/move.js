@@ -3,7 +3,8 @@ var spinPositionLeft = 'left',
 	saveMarginTop = 0,
 	saveMarginLeft = 0,
 	saveLeft = 0,
-	saveTop = 0;
+	saveTop = 0,
+	phpArray = new Array();
 
 // Сохраняем максимальное и минимальное значения спиннеров
 var setMax = function() {
@@ -32,6 +33,8 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 		if ($('.settings-box-switch__link_tile').hasClass('active')) {
 			$('.tiling-wide img').css('margin-top', ui.value);
 			$('.cover-box__line_horisontal').css('height', ui.value + 1);
+			phpArray[4] = Math.ceil(parseInt($('.tiling-wide').height()) / (parseInt($('.tiling-wide img').height()) + parseInt($('.tiling-wide img').css('margin-top')))) - 1;
+			$('#array').val(phpArray);
 		}
 		else {
 			$("#watermarkBox").css(spinPositionLeft, ui.value);			
@@ -57,6 +60,8 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 		if($('.settings-box-switch__link_tile').hasClass('active')) {
 			$('.tiling-wide img').css('margin-left', ui.value);
 			$('.cover-box__line_vertical').css('width', ui.value + 1);
+			phpArray[3] = Math.ceil(parseInt($('.tiling-wide').width()) / (parseInt($('.tiling-wide img').width()) + parseInt($('.tiling-wide img').css('margin-left')))) - 1;
+			$('#array').val(phpArray);
 		}
 		else {
 			$("#watermarkBox").css(spinPositionTop, ui.value);
@@ -66,32 +71,34 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 
 function checkActiveView() {
 	if($('.settings-box-switch__link_tile').hasClass('active')){
-		var mainWidth = $('.workarea-box').width(),
-
+		var mainWidth = $('#imgBox').width(),
+			mainHeight = $('#imgBox').height(),
 			imgForTiling = $("#watermarkBox img"),
 			imgForTilingW = $(imgForTiling).width(),
 			imgForTilingH = $(imgForTiling).height(),
 			imgParentH = $("#imgBox").children('img').height(),
 			imgParentW = $("#imgBox").children('img').width(),
 
-			numbCol = Math.ceil(mainWidth * 2 / imgForTilingW) + 2, // количество колонок
-			numbRows = Math.ceil(mainWidth * 2 / imgForTilingH) + 2,
+			numbCol = Math.ceil(mainWidth * 2 / imgForTilingW) - 1, // количество колонок
+			numbRows = Math.ceil(mainHeight * 2 / imgForTilingH) - 1,
 			numbImages = numbCol * numbRows; // какое количество картинок вставлять
-			phpObject.img = numbImages;
+			phpArray[3] = numbCol;
+			phpArray[4] = numbRows;
+			$('#array').val(phpArray);
 
 		$('#watermarkBox').children('img').css({'width': imgForTilingW, 'height': imgForTilingH}); //теперь пропорции watermark не пропадают!
 
 		$("#watermarkBox").wrapInner("<div class='tiling-wide'></div>");
 		$('.tiling-wide').css({
 			height: mainWidth * 2,
-			width: mainWidth * 2
+			width: mainHeight * 2
 		})
 		$("#watermarkBox").css({
 			height: mainWidth * 2,
-			width: mainWidth * 2
+			width: mainHeight * 2
 		})
 
-		for (var l = 0; l < numbImages; l++) {
+		for (var l = 0; l < (numbImages - 1); l++) {
 			$(imgForTiling).clone().insertAfter(imgForTiling);
 		}
 	}
@@ -106,8 +113,9 @@ $('.settings-box-switch__link').click(function(event){
 	var allLabel = $('.coordinates-label');
 
 	if ($(this).attr('id') == 'tileSwitch') {
-		phpObject.tiling = true;
-
+		phpArray[0] = true;
+		$('#array').val(phpArray);
+		
 		$(allLabel[0])
 			.attr('class', 'coordinates-label')
 			.addClass('coordinates-label-arrow-top');
@@ -133,14 +141,19 @@ $('.settings-box-switch__link').click(function(event){
 		$( "#watermarkBox" ).draggable({ 
 			containment: false, 
 			scroll: false,
-			drag: function() {}
+			drag: function() {
+				phpArray[1] = $( "#watermarkBox" ).css('top');
+				phpArray[2] = $( "#watermarkBox" ).css('left');
+				$('#array').val(phpArray);
+			}
 		});
 		
 		checkActiveView();
 		
 
 	} else if ($(this).attr('id') == 'oneSwitch') {
-		phpObject.tiling = false;
+		phpArray[0] = false;
+		$('#array').val(phpArray);
 
 		$(allLabel[0])
 			.attr('class', 'coordinates-label')
