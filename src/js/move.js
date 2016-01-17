@@ -74,17 +74,19 @@ function checkActiveView() {
 			imgParentH = $("#imgBox").children('img').height(),
 			imgParentW = $("#imgBox").children('img').width(),
 
-			numbCol = Math.ceil(imgParentW / imgForTilingW) + 2, // количество колонок
-			numbRows = Math.ceil(imgParentH / imgForTilingH) + 2,
+			numbCol = Math.ceil(mainWidth * 2 / imgForTilingW) + 2, // количество колонок
+			numbRows = Math.ceil(mainWidth * 2 / imgForTilingH) + 2,
 			numbImages = numbCol * numbRows; // какое количество картинок вставлять
-			phpObject.col = numbCol;
-			phpObject.row = numbRows;
 			phpObject.img = numbImages;
-			console.log($.param(phpObject));
+
 		$('#watermarkBox').children('img').css({'width': imgForTilingW, 'height': imgForTilingH}); //теперь пропорции watermark не пропадают!
 
 		$("#watermarkBox").wrapInner("<div class='tiling-wide'></div>");
 		$('.tiling-wide').css({
+			height: mainWidth * 2,
+			width: mainWidth * 2
+		})
+		$("#watermarkBox").css({
 			height: mainWidth * 2,
 			width: mainWidth * 2
 		})
@@ -105,7 +107,6 @@ $('.settings-box-switch__link').click(function(event){
 
 	if ($(this).attr('id') == 'tileSwitch') {
 		phpObject.tiling = true;
-		console.log($.param(phpObject));
 
 		$(allLabel[0])
 			.attr('class', 'coordinates-label')
@@ -140,7 +141,6 @@ $('.settings-box-switch__link').click(function(event){
 
 	} else if ($(this).attr('id') == 'oneSwitch') {
 		phpObject.tiling = false;
-		console.log($.param(phpObject));
 
 		$(allLabel[0])
 			.attr('class', 'coordinates-label')
@@ -176,7 +176,10 @@ $('.settings-box-switch__link').click(function(event){
 		
 		// удаляем нафиг все картинки, кроме первой
 		$("#watermarkBox img:gt(0)").remove();
-		
+		$("#watermarkBox").css({
+			width: watermarkWidth,
+			height: watermarkHeight
+		})
 		$('.tiling-wide').css({
 			width: '100%',
 			height: '100%'
@@ -184,35 +187,3 @@ $('.settings-box-switch__link').click(function(event){
 
 	}
 });
-var phpObject = new Object();
-var sendToServer = function( e ) {
-
-	e.preventDefault();
-
-	if( phpObject.imgURL !== '' && phpObject.watermarkURL !== '' ) {
-		$.ajax({
-			url        : '../php/image.php',
-			type       : 'POST',
-			dataType   : 'json',
-			data       : phpObject,
-			// beforeSend : function() {
-			// 	preloader
-			// 			.addClass('active')
-			// 			.delay( 300 )
-			// 			.queue(function() {
-			// 				$( this ).dequeue();
-			// 			});
-			// }
-		})
-		// .done(function( res ) {
-		// 	if( res && res.errors === false ) {
-		// 		$.sendEmul('./php/download.php', 'filename=' + res.file_url );
-		// 	} else {
-		// 		console.error('Файл не существует, или ошибка в файле download.php');
-		// 	}
-		// })
-		// .always(function() {
-		// 	preloader.removeClass('active');
-		// });
-	}
-};

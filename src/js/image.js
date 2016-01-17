@@ -1,4 +1,4 @@
-var proportions, valueX, valueY;
+var proportions, valueX, valueY, watermarkHeight, watermarkWidth;
 var pr = 0;
 var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	var position;
@@ -42,6 +42,8 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 			insideH = insideH / pr;
 		}
 	}
+	watermarkHeight = insideH;
+	watermarkWidth = insideW;
 	setPosition(box, boxH, boxW, insideH, insideW, position);
 	watermarkOpacity($( '#sliderOpacity' ).slider( 'value' ));
 	$(box).css({
