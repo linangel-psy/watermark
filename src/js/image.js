@@ -1,4 +1,5 @@
 var proportions, valueX, valueY;
+var pr = 0;
 var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	var position;
 	if (box == '#imgBox') {
@@ -23,9 +24,47 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 		setTimeout(function() {
 			$('.settings-box__link').removeClass('active');
 		}, 800);
+		$('#oneSwitch').trigger('click');
+		saveMarginTop = 0;
+		saveMarginLeft = 0;
+		saveLeft = 0;
+		saveTop = 0;
 	};
 	var insideH = imgH * proportions,
 		insideW = imgW * proportions;
+	if (pr != 0) {
+		if ( insideH > insideW ) {
+			insideH = boxH;
+			insideW = insideW / pr;
+		}
+		else {
+			insideW = boxW;
+			insideH = insideH / pr;
+		}
+	}
+	// if ( insideH > boxH || insideW > boxW ) {
+	// 	if (confirm('Выбранный водяной знак больше основного изображения. Хотете продолжить?')) {
+	// 		if (confirm('Вписать водяной знак в основное изображение?')) {
+	// 			if ( insideH > insideW ) {
+	// 				var pr = insideH/boxH;
+	// 				insideH = boxH;
+	// 				insideW = insideW / pr;
+	// 			}
+	// 			else {
+	// 				var pr = insideW/boxW;
+	// 				insideW = boxW;
+	// 				insideH = insideH / pr;
+	// 			}
+	// 		}
+	// 		else {
+	// 			alert ('Загруженный водяной знак больше основного изображения. Перемещение доступно только при помощи сетки перемещения');
+	// 			$('.settings-box__cover').show()
+	// 		}
+	// 	}
+	// 	else {
+
+	// 	}
+	// };
 	setPosition(box, boxH, boxW, insideH, insideW, position);
 	watermarkOpacity($( '#sliderOpacity' ).slider( 'value' ));
 	$(box).css({
@@ -120,6 +159,12 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 	}
 };
 var setSpinner = function(valueX, valueY) {
+	if ( valueX < 0) {
+			valueX = 0;
+	};
+	if ( valueY < 0 ) {
+		valueY = 0;
+	};
 	spinnerX.spinner( 'value', valueX );
 	spinnerY.spinner( 'value', valueY );
 	$('#originalX').attr('value', Math.ceil(valueX / proportions));

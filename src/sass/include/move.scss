@@ -1,6 +1,6 @@
 /* ========== position grid ========== */
-
 .settings-box_img-position{
+	position: relative;
 	box-sizing: border-box;
 	padding: 10px 5px 5px 18px;
 	/* clearfix */
@@ -56,6 +56,16 @@
 	&.active:hover{
 		@include sprite-position($oneon);
 	}
+}
+.settings-box__cover {
+	display: none;
+	position: absolute;
+	z-index: 99;
+	top: 1px;
+	left: 145px;
+	width: 113px;
+	height: 200px;
+	background: rgba(241, 241, 245, 0.29);
 }
 
 .settings-box__list{

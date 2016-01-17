@@ -151,7 +151,7 @@ $('.settings-box-switch__link').click(function(event){
 			saveMarginLeft = parseInt($('.tiling-wide img').css('margin-left'));
 		};
 
-		$("#watermarkBox").css({'margin-top':0,'margin-left':0});
+		$("#watermarkBox img").css({'margin-top':0,'margin-left':0});
 		$("#watermarkBox").css({'top':saveTop,'left':saveLeft});
 		setMax();
 		setSpinner(saveLeft, saveTop);
