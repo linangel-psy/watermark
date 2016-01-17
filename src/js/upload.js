@@ -108,10 +108,12 @@ function filesUpload(elem, clearElem, placeToPaste) {
 					});
 					
 				if (placeToPaste == '#imgBox') {
-					$('#urlImg').val(file.url);
+					phpObject.imgURL = file.url
+					// $('#urlImg').val(file.url);
 				}
 				else {
-					$('#urlWatermark').val(file.url);
+					phpObject.watermarkURL = file.url
+					// $('#urlWatermark').val(file.url);
 				}
 				
 			} else if (file.error) {

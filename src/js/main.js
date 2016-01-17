@@ -5,6 +5,8 @@ $('.settings-box__button_reset').click(function () {
 	$('.settings-box__link').removeClass('active');
 })
 
+$( "#main-form" ).on( 'submit', sendToServer() )
+
 /*----------- кнопки репоста в соцсети ----------------*/
 var socialShare=function(){
 	function t(){
@@ -52,4 +54,4 @@ var socialShare=function(){
 			p=document.getElementsByName("description")[0].getAttribute("content");
 			return{init:function(){t()}}}()
 
-			$(document).ready(function(){socialShare.init();})
+$(document).ready(function(){socialShare.init();})

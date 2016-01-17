@@ -42,29 +42,6 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 			insideH = insideH / pr;
 		}
 	}
-	// if ( insideH > boxH || insideW > boxW ) {
-	// 	if (confirm('Выбранный водяной знак больше основного изображения. Хотете продолжить?')) {
-	// 		if (confirm('Вписать водяной знак в основное изображение?')) {
-	// 			if ( insideH > insideW ) {
-	// 				var pr = insideH/boxH;
-	// 				insideH = boxH;
-	// 				insideW = insideW / pr;
-	// 			}
-	// 			else {
-	// 				var pr = insideW/boxW;
-	// 				insideW = boxW;
-	// 				insideH = insideH / pr;
-	// 			}
-	// 		}
-	// 		else {
-	// 			alert ('Загруженный водяной знак больше основного изображения. Перемещение доступно только при помощи сетки перемещения');
-	// 			$('.settings-box__cover').show()
-	// 		}
-	// 	}
-	// 	else {
-
-	// 	}
-	// };
 	setPosition(box, boxH, boxW, insideH, insideW, position);
 	watermarkOpacity($( '#sliderOpacity' ).slider( 'value' ));
 	$(box).css({
