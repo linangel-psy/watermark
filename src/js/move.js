@@ -26,9 +26,16 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 		} else if ( ui.value <= 0 ) {
 			ui.value = 0;
 		}
-		$("#watermarkBox").css(spinPositionLeft, ui.value);
 		$('#coordinatesX').spinner( "value", ui.value );
 		$('#originalX').attr('value', Math.ceil(ui.value / proportions));
+
+		if ($('.settings-box-switch__link_tile').hasClass('active')) {
+			$('.tiling-wide img').css('margin-top', ui.value);
+			$('.cover-box__line_horisontal').css('height', ui.value + 1);
+		}
+		else {
+			$("#watermarkBox").css(spinPositionLeft, ui.value);			
+		}
 	}		
 });
 // Определяем перемещение по Y
@@ -44,81 +51,44 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 		} else if ( ui.value <= 0 ) {
 			ui.value = 0;
 		}
-		$("#watermarkBox").css(spinPositionTop, ui.value);
 		$('#coordinatesY').spinner( "value", ui.value );
 		$('#originalY').attr('value', Math.ceil(ui.value / proportions));
+
+		if($('.settings-box-switch__link_tile').hasClass('active')) {
+			$('.tiling-wide img').css('margin-left', ui.value);
+			$('.cover-box__line_vertical').css('width', ui.value + 1);
+		}
+		else {
+			$("#watermarkBox").css(spinPositionTop, ui.value);
+		}
 	}	
 });
 
 function checkActiveView() {
 	if($('.settings-box-switch__link_tile').hasClass('active')){
-	var mainWidth = $('.workarea-box').width(),
+		var mainWidth = $('.workarea-box').width(),
 
-		imgForTiling = $("#watermarkBox img"),
-		imgForTilingW = $(imgForTiling).width(),
-		imgForTilingH = $(imgForTiling).height(),
-		imgParentH = $("#imgBox").children('img').height(),
-		imgParentW = $("#imgBox").children('img').width(),
+			imgForTiling = $("#watermarkBox img"),
+			imgForTilingW = $(imgForTiling).width(),
+			imgForTilingH = $(imgForTiling).height(),
+			imgParentH = $("#imgBox").children('img').height(),
+			imgParentW = $("#imgBox").children('img').width(),
 
-		numbCol = Math.ceil(imgParentW / imgForTilingW) + 2, // количество колонок
-		numbRows = Math.ceil(imgParentH / imgForTilingH) + 2,
-		numbImages = numbCol * numbRows, // какое количество картинок вставлять
-		ifExist = $("#watermarkBox div").is(".tiling-wide");
+			numbCol = Math.ceil(imgParentW / imgForTilingW) + 2, // количество колонок
+			numbRows = Math.ceil(imgParentH / imgForTilingH) + 2,
+			numbImages = numbCol * numbRows, // какое количество картинок вставлять
+			ifExist = $("#watermarkBox div").is(".tiling-wide");
+		$('#watermarkBox').children('img').css({'width': imgForTilingW, 'height': imgForTilingH}); //теперь пропорции watermark не пропадают!
 
-
-	if(!ifExist) {
 		$("#watermarkBox").wrapInner("<div class='tiling-wide'></div>");
 		$('.tiling-wide').css({
 			height: mainWidth * 2,
 			width: mainWidth * 2
 		})
-	}
 
-	for (var l = 0; l < numbImages; l++) {
-		$(imgForTiling).clone().insertAfter(imgForTiling);
-	}
-
-	$( "#coordinatesY" ).spinner({
-		spin: function( event, ui ) {
-			maxY = max[1];
-			$( "#coordinatesY" ).spinner({min: 0, max: 80});
-			if ( ui.value < maxY && ui.value > 0 ) {
-				ui.value -= 1;
-			}
-			else if ( ui.value >= maxY ) {
-				ui.value = maxY;
-			} else if ( ui.value <= 0 ) {
-				ui.value = 0;
-			}
-
-			$('#coordinatesY').spinner( "value", ui.value );
-			$('#originalY').attr('value', Math.ceil(ui.value / proportions));
-
-			$('.tiling-wide img').css('margin-left', ui.value);
-			$('.cover-box__line_vertical').css('width', ui.value + 1); // + 1 работает, не трогать!
-		}	
-	});
-
-	$( "#coordinatesX" ).spinner({
-		spin: function( event, ui ) {
-			maxX = max[0];
-			$( "#coordinatesX" ).spinner({min: 0, max: 80});
-			if ( ui.value < maxX && ui.value > 0 ) {
-				ui.value -= 1;
-			}
-			else if ( ui.value >= maxX ) {
-				ui.value = maxX;
-			} else if ( ui.value <= 0 ) {
-				ui.value = 0;
-			}
-
-			$('#coordinatesX').spinner( "value", ui.value );
-			$('#originalX').attr('value', Math.ceil(ui.value / proportions));
-
-			$('.tiling-wide img').css('margin-top', ui.value);
-			$('.cover-box__line_horisontal').css('height', ui.value + 1); // + 1 работает, не трогать!
-		}	
-	});
+		for (var l = 0; l < numbImages; l++) {
+			$(imgForTiling).clone().insertAfter(imgForTiling);
+		}
 	}
 };
 
@@ -149,8 +119,8 @@ $('.settings-box-switch__link').click(function(event){
 		saveTop = parseInt($("#watermarkBox").css('top'));
 
 		$("#watermarkBox").css({'top':0,'left':0});
-		$("#watermarkBox").css({'margin-top':saveMarginTop,'margin-left':saveMarginLeft});
-
+		$('.tiling-wide img').css({'margin-top':saveMarginTop,'margin-left':saveMarginLeft});
+		max = [80, 80];
 		setSpinner(saveMarginLeft, saveMarginTop);
 
 		// Функция для перемещения водяного знака
@@ -176,13 +146,14 @@ $('.settings-box-switch__link').click(function(event){
 
 		spinPositionLeft = 'left';
 		spinPositionTop = 'top';
-
-		saveMarginTop = parseInt($("#watermarkBox").css('margin-top'));
-		saveMarginLeft = parseInt($("#watermarkBox").css('margin-left'));
+		if (parseInt($('.tiling-wide img').css('margin-top'))) {
+			saveMarginTop = parseInt($('.tiling-wide img').css('margin-top'));
+			saveMarginLeft = parseInt($('.tiling-wide img').css('margin-left'));
+		};
 
 		$("#watermarkBox").css({'margin-top':0,'margin-left':0});
 		$("#watermarkBox").css({'top':saveTop,'left':saveLeft});
-
+		setMax();
 		setSpinner(saveLeft, saveTop);
 
 		// Функция для перемещения водяного знака

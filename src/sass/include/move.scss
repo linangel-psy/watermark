@@ -64,10 +64,15 @@
 	width: 102px;
 	position: relative;
 	margin-top: 37px;
+
+	& > .cover-box {
+		display: none;
+	}
 	
 	&.active > .cover-box{
 		width: 102px;
 		height: 103px;
+		display: block;
 		position: absolute;
 		top: 0px;
 		left: 0px;
