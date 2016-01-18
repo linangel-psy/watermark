@@ -3,7 +3,7 @@ $('.settings-box__button_reset').click(function () {
 	$('#imgBox').find('img').remove();
 	$('.input-upload').text('Выберите картинку');
 	$('.settings-box__link').removeClass('active');
-})
+});
 
 /*----------- кнопки репоста в соцсети ----------------*/
 var socialShare=function(){
@@ -52,4 +52,4 @@ var socialShare=function(){
 			p=document.getElementsByName("description")[0].getAttribute("content");
 			return{init:function(){t()}}}()
 
-			$(document).ready(function(){socialShare.init();})
+$(document).ready(function(){socialShare.init();})

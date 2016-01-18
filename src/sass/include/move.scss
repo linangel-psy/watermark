@@ -1,6 +1,6 @@
 /* ========== position grid ========== */
-
 .settings-box_img-position{
+	position: relative;
 	box-sizing: border-box;
 	padding: 10px 5px 5px 18px;
 	/* clearfix */
@@ -57,6 +57,16 @@
 		@include sprite-position($oneon);
 	}
 }
+.settings-box__cover {
+	display: none;
+	position: absolute;
+	z-index: 99;
+	top: 1px;
+	left: 145px;
+	width: 113px;
+	height: 200px;
+	background: rgba(241, 241, 245, 0.29);
+}
 
 .settings-box__list{
 	display: block;
@@ -64,10 +74,15 @@
 	width: 102px;
 	position: relative;
 	margin-top: 37px;
+
+	& > .cover-box {
+		display: none;
+	}
 	
 	&.active > .cover-box{
 		width: 102px;
 		height: 103px;
+		display: block;
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -233,4 +248,9 @@
 
 .ui-spinner-up:hover > .ui-button-text{
 	@include sprite-position($arrow-top-hover)
+}
+
+
+.tiling-wide {
+	@include center;
 }

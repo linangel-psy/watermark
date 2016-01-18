@@ -42,7 +42,7 @@ function filesUpload(elem, clearElem, placeToPaste) {
 	}).on('fileuploadprocessalways', function (e, data) {
 		clearBlocks(clearElem);
 		var file = data.files;
-		
+		$('.settings-box__cover').hide();
 		if (file.error) {
 			alertFileType('Неверный формат файла');
 			if (placeToPaste == '#imgBox') {
@@ -62,6 +62,7 @@ function filesUpload(elem, clearElem, placeToPaste) {
 		}, 2000);
 	}).on('fileuploaddone', function (e, data) {
 		clearBlocks(clearElem);
+		pr = 0;
 		$.each(data.result.files, function (index, file) {
 			if (placeToPaste == '#imgBox') {
 				$('.settings__cover').css('height', '440px');
@@ -77,9 +78,33 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						imgH = this.height;
 						boxH = parseInt($(placeToPaste).parent().css('height'));
 						boxW = parseInt($(placeToPaste).parent().css('width'));
+						insideH = imgH * proportions,
+						insideW = imgW * proportions;
+						var lang = language[getCookie('language')];
+						if ( placeToPaste == '#watermarkBox' && (insideH > boxH || insideW > boxW) ) {
+							if (confirm(lang.alerts['confirm1'])) {
+								if (confirm(lang.alerts['confirm2'])) {
+									if ( insideH > insideW ) {
+										pr = insideH/boxH;
+									}
+									else {
+										pr = insideW/boxW;
+									}
+								}
+								else {
+									$('.settings-box__cover').show();
+									alert (lang.alerts['alert']);
+								}
+							}
+							else {
+								$('#loadWatermark').val('');
+								return
+							}
+						};
 						imgSizeCalculation(placeToPaste, boxH, boxW, imgH, imgW);
 						$(placeToPaste).append(imgMain);
 						setMax();
+						
 					});
 					
 				if (placeToPaste == '#imgBox') {
