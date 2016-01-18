@@ -30,7 +30,7 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 			ui.value = 0;
 		}
 		$('#coordinatesX').spinner( "value", ui.value );
-		$('#originalX').attr('value', ui.value);
+		$('#originalX').attr('value', ui.value / proportions);
 
 		if ($('.settings-box-switch__link_tile').hasClass('active')) {
 			$('.tiling-wide img').css('margin-top', ui.value);
@@ -57,7 +57,7 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 			ui.value = 0;
 		}
 		$('#coordinatesY').spinner( "value", ui.value );
-		$('#originalY').attr('value', ui.value);
+		$('#originalY').attr('value', ui.value / proportions);
 
 		if($('.settings-box-switch__link_tile').hasClass('active')) {
 			$('.tiling-wide img').css('margin-left', ui.value);
@@ -141,6 +141,8 @@ $('.settings-box-switch__link').click(function(event){
 		phpArray[2] = parseInt($( "#watermarkBox" ).css('left'));
 		$('.tiling-wide img').css({'margin-top':saveMarginTop,'margin-left':saveMarginLeft});
 		max = [80, 80];
+		$( "#coordinatesX" ).spinner('option', 'max', max[0]);
+		$( "#coordinatesY" ).spinner('option', 'max', max[1]);
 		setSpinner(saveMarginLeft, saveMarginTop);
 
 		// Функция для перемещения водяного знака
