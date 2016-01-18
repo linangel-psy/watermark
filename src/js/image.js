@@ -139,7 +139,7 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 };
 var setSpinner = function(valueX, valueY) {
 	if ( valueX < 0) {
-			valueX = 0;
+		valueX = 0;
 	};
 	if ( valueY < 0 ) {
 		valueY = 0;

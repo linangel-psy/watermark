@@ -4,21 +4,23 @@ var spinPositionLeft = 'left',
 	saveMarginLeft = 0,
 	saveLeft = 0,
 	saveTop = 0,
-	phpArray = new Array();
+	phpArray = new Array(),
+	max = new Array();
 
 // Сохраняем максимальное и минимальное значения спиннеров
 var setMax = function() {
 	var maxX = $("#imgBox").width() - $("#watermarkBox").width();
 	var maxY = $("#imgBox").height() - $("#watermarkBox").height();
+	$( "#coordinatesX" ).spinner('option', 'max', maxX);
+	$( "#coordinatesY" ).spinner('option', 'max', maxY);
 	max = [maxX, maxY];
-	return max;
 };
 
 // Определяем перемещение по X
 var spinnerX = $( "#coordinatesX" ).spinner({
+	min: 0,
 	spin: function( event, ui ) {
 		maxX = max[0];
-		$( "#coordinatesX" ).spinner({min: 0, max: maxX});
 		if ( ui.value < maxX && ui.value > 0 ) {
 			ui.value += 1;
 		}
@@ -28,7 +30,7 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 			ui.value = 0;
 		}
 		$('#coordinatesX').spinner( "value", ui.value );
-		$('#originalX').attr('value', Math.ceil(ui.value / proportions));
+		$('#originalX').attr('value', ui.value);
 
 		if ($('.settings-box-switch__link_tile').hasClass('active')) {
 			$('.tiling-wide img').css('margin-top', ui.value);
@@ -43,9 +45,9 @@ var spinnerX = $( "#coordinatesX" ).spinner({
 });
 // Определяем перемещение по Y
 var spinnerY = $( "#coordinatesY" ).spinner({
+	min: 0,
 	spin: function( event, ui ) {
 		maxY = max[1];
-		$( "#coordinatesY" ).spinner({min: 0, max: maxY});
 		if ( ui.value < maxY && ui.value > 0 ) {
 			ui.value -= 1;
 		}
@@ -55,7 +57,7 @@ var spinnerY = $( "#coordinatesY" ).spinner({
 			ui.value = 0;
 		}
 		$('#coordinatesY').spinner( "value", ui.value );
-		$('#originalY').attr('value', Math.ceil(ui.value / proportions));
+		$('#originalY').attr('value', ui.value);
 
 		if($('.settings-box-switch__link_tile').hasClass('active')) {
 			$('.tiling-wide img').css('margin-left', ui.value);
@@ -76,11 +78,11 @@ function checkActiveView() {
 			imgForTiling = $("#watermarkBox img"),
 			imgForTilingW = $(imgForTiling).width(),
 			imgForTilingH = $(imgForTiling).height(),
-			imgParentH = $("#imgBox").children('img').height(),
-			imgParentW = $("#imgBox").children('img').width(),
+			imgParentH = $("#imgBox").height(),
+			imgParentW = $("#imgBox").width(),
 
-			numbCol = Math.ceil(mainWidth * 2 / imgForTilingW) - 1, // количество колонок
-			numbRows = Math.ceil(mainHeight * 2 / imgForTilingH) - 1,
+			numbCol = Math.ceil(mainWidth * 3 / (imgForTilingW + max[0])), // количество колонок
+			numbRows = Math.ceil(mainHeight * 3 / (imgForTilingH + max[1])),
 			numbImages = numbCol * numbRows; // какое количество картинок вставлять
 			phpArray[3] = numbCol;
 			phpArray[4] = numbRows;
@@ -88,14 +90,16 @@ function checkActiveView() {
 
 		$('#watermarkBox').children('img').css({'width': imgForTilingW, 'height': imgForTilingH}); //теперь пропорции watermark не пропадают!
 
-		$("#watermarkBox").wrapInner("<div class='tiling-wide'></div>");
+		if ($('.tiling-wide').length == 0) {
+			$("#watermarkBox").wrapInner("<div class='tiling-wide'></div>");
+		}
 		$('.tiling-wide').css({
-			height: mainWidth * 2,
-			width: mainHeight * 2
+			height: mainWidth * 3,
+			width: mainHeight * 3
 		})
 		$("#watermarkBox").css({
-			height: mainWidth * 2,
-			width: mainHeight * 2
+			height: mainWidth * 3,
+			width: mainHeight * 3
 		})
 
 		for (var l = 0; l < (numbImages - 1); l++) {
@@ -115,7 +119,7 @@ $('.settings-box-switch__link').click(function(event){
 	if ($(this).attr('id') == 'tileSwitch') {
 		phpArray[0] = true;
 		$('#array').val(phpArray);
-		
+
 		$(allLabel[0])
 			.attr('class', 'coordinates-label')
 			.addClass('coordinates-label-arrow-top');
@@ -173,6 +177,14 @@ $('.settings-box-switch__link').click(function(event){
 
 		$("#watermarkBox img").css({'margin-top':0,'margin-left':0});
 		$("#watermarkBox").css({'top':saveTop,'left':saveLeft});
+		$("#watermarkBox").css({
+			width: watermarkWidth,
+			height: watermarkHeight
+		})
+		$('.tiling-wide').css({
+			width: '100%',
+			height: '100%'
+		})
 		setMax();
 		setSpinner(saveLeft, saveTop);
 
@@ -189,14 +201,5 @@ $('.settings-box-switch__link').click(function(event){
 		
 		// удаляем нафиг все картинки, кроме первой
 		$("#watermarkBox img:gt(0)").remove();
-		$("#watermarkBox").css({
-			width: watermarkWidth,
-			height: watermarkHeight
-		})
-		$('.tiling-wide').css({
-			width: '100%',
-			height: '100%'
-		})
-
 	}
 });
