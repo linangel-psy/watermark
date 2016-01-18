@@ -137,8 +137,8 @@ $('.settings-box-switch__link').click(function(event){
 		saveTop = parseInt($("#watermarkBox").css('top'));
 
 		$("#watermarkBox").css({'top':0,'left':0});
-		phpArray[1] = parseInt($( "#watermarkBox" ).css('top'));
-		phpArray[2] = parseInt($( "#watermarkBox" ).css('left'));
+		phpArray[1] = parseInt($( "#watermarkBox" ).css('top')) / proportions;
+		phpArray[2] = parseInt($( "#watermarkBox" ).css('left')) / proportions;
 		$('.tiling-wide img').css({'margin-top':saveMarginTop,'margin-left':saveMarginLeft});
 		max = [80, 80];
 		$( "#coordinatesX" ).spinner('option', 'max', max[0]);
@@ -150,8 +150,8 @@ $('.settings-box-switch__link').click(function(event){
 			containment: false, 
 			scroll: false,
 			drag: function() {
-				phpArray[1] = parseInt($( "#watermarkBox" ).css('top'));
-				phpArray[2] = parseInt($( "#watermarkBox" ).css('left'));
+				phpArray[1] = parseInt($( "#watermarkBox" ).css('top')) / proportions;
+				phpArray[2] = parseInt($( "#watermarkBox" ).css('left')) / proportions;
 				$('#array').val(phpArray);
 			}
 		});
