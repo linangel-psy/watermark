@@ -89,6 +89,8 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						imgSizeCalculation(placeToPaste, boxH, boxW, imgH, imgW);
 						$(placeToPaste).append(imgMain);
 						setMax();
+						$('.cover-box__line_horisontal').css('height', '1px');
+						$('.cover-box__line_vertical').css('width', '1px');
 						
 					});
 					
