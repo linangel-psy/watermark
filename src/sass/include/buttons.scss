@@ -48,7 +48,6 @@
 	vertical-align:middle;
 	margin-bottom:1px;
 	font-size:19px;
-	padding:5px 0;
 	box-sizing:border-box;
 	font-family:SegoeUILight;
 }
@@ -57,10 +56,10 @@
 
 .soc-buttons{
 	left:-44px;
-	top: 20px;
+	top: 18px;
+	transition: all .3s ease;
 	&:hover{
 		left: 0;
-		transition: all .3s ease;
 	}
 }
 
