@@ -82,25 +82,10 @@ function filesUpload(elem, clearElem, placeToPaste) {
 						insideW = imgW * proportions;
 						var lang = language[getCookie('language')];
 						if ( placeToPaste == '#watermarkBox' && (insideH > boxH || insideW > boxW) ) {
-							if (confirm(lang.alerts['confirm1'])) {
-								if (confirm(lang.alerts['confirm2'])) {
-									if ( insideH > insideW ) {
-										pr = insideH/boxH;
-									}
-									else {
-										pr = insideW/boxW;
-									}
-								}
-								else {
-									$('.settings-box__cover').show();
-									alert (lang.alerts['alert']);
-								}
-							}
-							else {
-								$('#loadWatermark').val('');
-								return
-							}
-						};
+							alert(lang.alerts['alert'])
+							$('#loadWatermark').val('');
+							return
+						}
 						imgSizeCalculation(placeToPaste, boxH, boxW, imgH, imgW);
 						$(placeToPaste).append(imgMain);
 						setMax();

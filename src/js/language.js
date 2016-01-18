@@ -18,9 +18,7 @@ var language = {
 			'.input-upload': 'Выберите картинку',
 		},
 		alerts: {
-			'confirm1': 'Выбранный водяной знак больше основного изображения. Хотете продолжить?',
-			'confirm2': 'Вписать водяной знак в основное изображение?',
-			'alert': 'Загруженный водяной знак больше основного изображения. Перемещение доступно только при помощи сетки перемещения.'
+			'alert': 'Загруженный водяной знак больше основного изображения. Выберете другйю картинку.'
 		}
 	},
 	en: {
@@ -42,9 +40,7 @@ var language = {
 			'.input-upload': 'Choose an image',
 		},
 		alerts: {
-			'confirm1': 'Watermark is larger than main image. Do you want to continue?',
-			'confirm2': 'Would you like to fit watermark to size of the main image?',
-			'alert': 'Loaded watermark is larger than main image. Moving is possible only by clicking at moving map.'
+			'alert': 'Loaded watermark is larger than main image. Choose anoter image.'
 		}
 	}
 };

@@ -1,5 +1,4 @@
 var proportions, valueX, valueY, watermarkHeight, watermarkWidth;
-var pr = 0;
 var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	var position;
 	if (box == '#imgBox') {
@@ -32,16 +31,6 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	};
 	var insideH = imgH * proportions,
 		insideW = imgW * proportions;
-	if (pr != 0) {
-		if ( insideH > insideW ) {
-			insideH = boxH;
-			insideW = insideW / pr;
-		}
-		else {
-			insideW = boxW;
-			insideH = insideH / pr;
-		}
-	}
 	watermarkHeight = insideH;
 	watermarkWidth = insideW;
 	setPosition(box, boxH, boxW, insideH, insideW, position);
