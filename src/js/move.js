@@ -81,8 +81,8 @@ function checkActiveView() {
 			imgParentH = $("#imgBox").height(),
 			imgParentW = $("#imgBox").width(),
 
-			numbCol = Math.ceil(mainWidth * 3 / (imgForTilingW + max[0])), // количество колонок
-			numbRows = Math.ceil(mainHeight * 3 / (imgForTilingH + max[1])),
+			numbCol = Math.ceil(mainWidth * 3 / (imgForTilingW)), // количество колонок
+			numbRows = Math.ceil(mainHeight * 3 / (imgForTilingH)),
 			numbImages = numbCol * numbRows; // какое количество картинок вставлять
 			phpArray[3] = numbCol;
 			phpArray[4] = numbRows;
