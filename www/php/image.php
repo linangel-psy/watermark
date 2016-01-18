@@ -1,5 +1,5 @@
 <?php
-
+ini_set("memory_limit","256M");
 require_once('../PHPImageWorkshop/ImageWorkshop.php');
 use PHPImageWorkshop\ImageWorkshop;
 
@@ -17,6 +17,7 @@ $watermark = ImageWorkshop::initFromPath($watermark_input);
 $watermark->opacity($slider_opacity);
 
 list($watermark_width, $watermark_height) = getimagesize($watermark_input);
+list($img_width, $img_height) = getimagesize($main_image_input);
 
 $margin_x = $_POST['x-coordinates'];
 $margin_y = $_POST['y-coordinates'];
@@ -34,41 +35,24 @@ $margin_y = $_POST['y-coordinates'];
 $y_coordinates_tiles = $tile_mode[1];
 $x_coordinates_tiles = $tile_mode[2];
 
-/*
+
 
 if($tile_mode[0]==='true') {
-    for ($i = 1; $i <= $tile_mode[4]; $i++) {
-        for ($k = 1; $k < $tile_mode[3]; $k++) {
-            $main_image->addLayer(1, $watermark, $tile_mode[2], $tile_mode[1], "LT");
-            if($tile_mode[2]==$y_coordinates_tiles){
-                $tile_mode[2] = $tile_mode[2] + $margin_x*2;
-            }else{
-                $tile_mode[2] = $tile_mode[2] + $watermark_width + $margin_x*2;
+    $mx = $y_coordinates;
+    $my = $x_coordinates;
+    for ($i = 0; $i < $tile_mode[4]; $i++) {
+        $y = $tile_mode[1] + $my + $i * ($watermark_height + $my);
+        for ($j = 0; $j < $tile_mode[3]; $j++) {
+            $x = $tile_mode[2] + $mx + $j * ($watermark_width + $mx);
+            $main_image->addLayer(1, $watermark, $x, $y, "LT");
+            if ($x + $watermark_width + $mx >= $img_width) {
+                break;
             }
         }
-        $main_image->addLayer(1, $watermark, $tile_mode[2], $tile_mode[1], "LT");
-        if($tile_mode[1]==$y_coordinates_tiles){
-            $tile_mode[1] = $tile_mode[1] + $margin_y*2;
-        }else{
-            $tile_mode[1] = $tile_mode[1] + $watermark_height + $margin_y*2;
+        $main_image->mergeAll();
+        if ($y + $watermark_height + $my >= $img_height) {
+            break;
         }
-        $tile_mode[2] = $margin_x;
-    }
-}else{
-    $main_image->addLayer(1, $watermark, $x_coordinates, $y_coordinates, "LT");
-}
-
-*/
-
-if($tile_mode[0]==='true') {
-    for ($i = 1; $i <= $tile_mode[4]; $i++) {
-        for ($k = 1; $k < $tile_mode[3]; $k++) {
-            $main_image->addLayer(1, $watermark, $tile_mode[2], $tile_mode[1], "LT");
-                $tile_mode[2] = $tile_mode[2] + $watermark_width + $margin_x*2;
-        }
-        $main_image->addLayer(1, $watermark, $tile_mode[2], $tile_mode[1], "LT");
-            $tile_mode[1] = $tile_mode[1] + $watermark_height + $margin_y*2;
-        $tile_mode[2] = $margin_x;
     }
 }else{
     $main_image->addLayer(1, $watermark, $x_coordinates, $y_coordinates, "LT");
