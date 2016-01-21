@@ -15,8 +15,7 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 			}
 		};
 
-	}
-	else if (box == '#watermarkBox') {
+	} else if (box == '#watermarkBox') {
 		position = 'bottom-right';
 		$('.settings-box__link').removeClass('active');
 		$('#bottom-right').addClass('active');
@@ -34,7 +33,7 @@ var imgSizeCalculation = function(box, boxH, boxW, imgH, imgW) {
 	watermarkHeight = insideH;
 	watermarkWidth = insideW;
 	setPosition(box, boxH, boxW, insideH, insideW, position);
-	watermarkOpacity($( '#sliderOpacity' ).slider( 'value' ));
+	watermarkOpacity($('#sliderOpacity').slider('value'));
 	$(box).css({
 		'height': insideH,
 		'width': insideW
@@ -46,7 +45,7 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 	outH = parseInt(outH);
 	insideW = parseInt(insideW);
 	insideH = parseInt(insideH);
-	switch(id) {
+	switch (id) {
 		case 'top-left':
 			var top = 0,
 				left = 0;
@@ -127,19 +126,19 @@ var setPosition = function(box, outH, outW, insideH, insideW, id) {
 	}
 };
 var setSpinner = function(valueX, valueY) {
-	if ( valueX < 0) {
+	if (valueX < 0) {
 		valueX = 0;
 	};
-	if ( valueY < 0 ) {
+	if (valueY < 0) {
 		valueY = 0;
 	};
-	spinnerX.spinner( 'value', valueX );
-	spinnerY.spinner( 'value', valueY );
+	spinnerX.spinner('value', valueX);
+	spinnerY.spinner('value', valueY);
 	$('#originalX').attr('value', Math.ceil(valueX / proportions));
 	$('#originalY').attr('value', Math.ceil(valueY / proportions));
 };
 
-$('.settings-box__link').click(function(event){
+$('.settings-box__link').click(function(event) {
 	event.preventDefault();
 	$('.settings-box__link').removeClass('active');
 	$(this).addClass('active');
